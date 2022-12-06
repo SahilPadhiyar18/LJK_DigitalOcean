@@ -72,9 +72,13 @@ DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
 
 if DEVELOPMENT_MODE is True:
     DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'ADMS',
+            'USER': 'Sahil',
+            'PASSWORD': 'AVNS_tdu7rSonQ_iF0uw5FvR',
+            'HOST': 'db-postgresql-adms-do-user-12454574-0.b.db.ondigitalocean.com',
+            'PORT': '25060',
         }
     }
 elif len(sys.argv) > 0 and sys.argv[1] != 'collectstatic':
