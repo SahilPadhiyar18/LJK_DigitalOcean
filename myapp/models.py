@@ -13,10 +13,10 @@ class roomdata(models.Model):
     ac1lock = models.BooleanField(default=False)
     ac2 = models.BooleanField(default=False)
     ac2lock = models.BooleanField(default=False)
-    ping = models.DateTimeField(default=datetime.now())
+    ping = models.DateTimeField(auto_now_add=True)
 
 class datalogs(models.Model):
     rid = models.CharField(max_length=20)
     ac1cur = models.FloatField()
     ac2cur = models.FloatField()
-    time = models.DateTimeField(default=datetime.now())
+    time = models.DateTimeField(auto_now_add=True)
