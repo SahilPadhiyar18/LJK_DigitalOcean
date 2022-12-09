@@ -3,7 +3,6 @@ from django.http import HttpResponse
 from .models import *
 from django.contrib.auth.models import User, auth
 from django.template import loader
-import pandas as pd
 import json
 from datetime import datetime
 from django.utils import timezone
