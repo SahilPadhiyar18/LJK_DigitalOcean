@@ -2,22 +2,25 @@
 <html>
 <body>
 
-<table border='1.2' style="width:100%" >
+<table border='1' style="width:100%" >
   <tr>
     <th>id</th>
     <th>rid</th>
-    <th>espid</th>
-    <th>ac1</th>
-    <th>ac2</th>
+    <th>ac1cur</th>
+    <th>ac2cur</th>
+    <th>time</th>
 
   </tr>
   {% for x in mymembers %}
     <tr>
         <td>{{ x.id }}</td>
         <td>{{ x.rid }}</td>
-        <td>{{ x.espid }}</td>
-        <td>{{ x.ac1 }}</td>
-        <td>{{ x.ac2 }}</td>
+        <td>{{ x.ac1cur }}</td>
+        <td>{{ x.ac2cur }}</td>
+        <td>{{ x.time }}</td>
+        <!-- <td>{{ x.ac1 }}</td>
+        <td>{{ x.ping }}</td> -->
+
     </tr>
   {% endfor %}
 </table>
