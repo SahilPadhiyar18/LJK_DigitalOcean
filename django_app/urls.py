@@ -20,5 +20,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("myapp.urls")),
     path('espac', include("myapp.urls")),
+    path('delete', include("myapp.urls")),
+    path('cheakbox', include("myapp.urls")),
+    path('home', include("myapp.urls")),
+
 ]
 
