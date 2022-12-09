@@ -19,4 +19,4 @@ class datalogs(models.Model):
     rid = models.CharField(max_length=20)
     ac1cur = models.FloatField()
     ac2cur = models.FloatField()
-    time = models.DateTimeField(default=datetime.now)
+    time = models.DateTimeField(default=datetime.now())
