@@ -1,0 +1,367 @@
+<html>
+
+<head>
+  <title>ADMS</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- ------------ -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+  <!-- -------------------------- -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+  <style>
+        .div_ac {
+      /* position:sticky; */
+      align-items: center;
+      display: inline;
+      padding-top: 0px;
+      padding-left: 0%;
+      padding-right: 0%;
+      /* margin-left: 10px; */
+      align-items: center;
+    }
+
+    /* .div_acc{display:flex ;margin-left: 30% ;margin-right: 30%;align-items: center;vertical-align: middle;} */
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+
+    input:checked+.slider {
+      background-color: #2196F3;
+    }
+
+    input:focus+.slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked+.slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+      border-radius: 34px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
+
+    .hello {
+      margin-left: 20%;
+    }
+
+    /* -------------------------------------- */
+
+    .button {
+      display: inline-block;
+      border-radius: 4px;
+      background-color: #4598e1;
+      border: none;
+      color: #FFFFFF;
+      text-align: center;
+      font-size: 18px;
+      padding: 10px;
+      width: 150px;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin: 5px;
+      margin-top: 10px;
+      margin-left: 10px;
+    }
+
+    .button span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+    }
+
+    .button span:after {
+      content: '\00bb';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+    }
+
+    .button:hover span {
+      padding-right: 25px;
+    }
+
+    .button:hover span:after {
+      opacity: 1;
+      right: 0;
+    }
+    .column {
+      float: left;
+      width: 25%;
+      padding: 0 10px;
+      margin-top: 10px;
+    }
+    .row {
+        margin-top:10px auto;
+      }
+
+  </style>
+</head>
+
+<body style="height:150px;background-color: #e3f2fd;">
+  <nav class="navbar navbar-expand-lg" style="background-color: #fff;">
+    <div class="container-fluid">
+      <img
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAb4AAABxCAMAAACdmjYOAAABgFBMVEX///8Veb7+/v4AcrsAdLwAb7r6/f6qAAAAc7wZfcADdr1hnc4AdsOuIiAAbrqsyuTzAnf/sQClAAD4qgDZ5vKGsthsotDrzs7z+Pvg6vQkgsJPk8r5rgAAdcXr8/nS4O/QjYygwd/+txWvGxiWutvhuLjw3Nz58fHkwMD1AG6sEg8AZ7eynHK30Of6ZJ3v2dnXoqK2PTv15+fLfn3VnZx3qNP96MNIj8jbrKzAYF+4SUiwKymzNDLD2Ov+9uipmnX82Jn4PIn8367CaGfIeHf+9eP979G9VlZ7veHKl8RQotP95b76wlX70YX7yW370ov6wkf5uCugmHmDkIxQg6lfiJ3JsdbxaaX71ZP7yGf7y3f84af6xVD6vDf714fmrDTcqjW/oVrUp0hti5jFo1WZl8vv0uaup9Ppeav7AGmVos/Cq9HimMPwrM3Pib2i2O7Nw9yytNdGg6bcudX+1uSiLDUsfrFdrtm/kJb8irP2N4j/vtaUlIHg1Oe5kcN5jpLEECkeAAAgAElEQVR4nO19iWPbxpX3ECcBSmB5gyAFHuIVMlxKFClQB1WtTq8syWLitJZcrR0322O3SZNm1/52t/36r+97Mzh56Ioj2bVeEoYgZh5m5jfvnMGIkOnEXZbvTlszmD7SPdFWufzFL136/Abklf7iVXn/odv/aRM3Kj9fmLsrKY/4PShtjcpv50J3JvXtKPaI34MRaM63wt3RA/yUV4/4PRRtlUc/DT3AL/SI3wPRVuyVQdFT7gYdraaqr2IHD92TT5EOYq8VFREQ2vxd0OPbYYbf69jOQ/fl0yMbPVXgLaIIt9ahgiCSHC8gB/Xr2MuH7s2nRk9jb+Zw7K1Kv02i/YpxO/SMVKpEhv1UDnnMfR178dD9+bRoJ/YNCxjUCgR/hKTU28Gn9mm1KLt6xO9+aTv/+YINhJiDa+PW1i+sAHp9zb5a+CJ28tB9+oRoNfZ3J1oPV0iB9G9t+9QIVIs6qAtfPbov90nnIwcHPplu9Ye3lj6+XWnlsg7qc68uH7pHnxTtx75wxA9iv/AtHRdajQ+pil1v7svH2O9+6bR8rbOihnkRiEYHV9Pcq7OH7s8nRgexL6/KVau8qPRLw0IymRyW+obGXwWh8NvY6kP351Ojs9cLM/FQRStqkkI0lY5E0qlSQdKjOXG2d7PwpvzQvfnkaCf2doZEqXw/q5NUC9WmqgqCILZSxDRTsyRQfZt/jPrum7Y85yVIWsTMpjVDGhqiSnNiojLkrFYkqafFqRXAcXlcdLh3mq49VaENMPHqMDskw76lhIw+fMkOQzzAWlCmCeDCN6OH7ssnSC9iU6AIWzoXbYkRKRqRKvrQlCSzIFWkdEmKiK2KJOWmBYiji4fuyydIB7GvJmQpHCH9cHZYkXJ9YukRUUu1W1pOMkjfIpWoqcLtCQWqPn/MuDwAcZPGT4iQXEhRJQLoGe22oKiVNh8S2+2Q1FcI0VTBmMQPTN/jfsEHoPLXY/AJOWIphmEOUwAgyJyhhBC+UJhYBpFS7Sz4MQrpj+nPuc/L3EN35VOk01dB30VVJD2lGGbbiOgF3SwZhhGqDMMhVUtlswXd0KJmSGtnJSuocxfePKZcHoJOykHp07IVQ29n29aRXjoqEb2QyoVSbc1ItyEKFFN6KFzKFgpaXw8G8HOvzh+6J58kvcwHAne+kuQVRer+2++//93vf/+773//fdbEYnqyZKQKijJsg2OjtxRxGA2YP/UxaH8QWo0998OnELB10eQf/viZTX/8d1CebVENgRaVIpahD7lIMhoOhUhQfT7udHkQOgjAB0IVDkUk6w+fffYLJITPMipDAM+yrGE7V9E5yzBIJCSkCj7xU98+xg0PQoHATzUk+NT71n/86dt/RvT+8N13KYRPAfSOjp5IpvkuW7GMNBTj/d4LwPf0oXtyW6qtrBXr9//YenFtr/beuAXg40ttXigNFSun//mfEL4f//zOMhSEL/fDD9/Xan+Dz9/9YCkgpFDOCx7Uv1y5WtSOjlN7esHCRMHoWAl9skRy/Ef9Jh1vyM1FeePe8evOy4vNeOZ9sQvCp1uqSkBRpvQnDD5TkpLDpDnMSr9wrOFn/3xkWERRQ+TG8FkiHyTRml6woo0V5ENjJczWeAmtQsxAtVb2Bv3uyvNAzbUbDtN7o+VFfG7cP20KJaS7sfPDp1qmCEKlGsawzeD7j3dHkVRlmK2knvzCNYcAX2hYEsRkWr0hfLnxxJw6C76J9URlrIQ5ka8TSsQM+38QbwJfsTlPx7Fzw3F6T5Shs2Ze7vl+64uCwPN34+eHTyhFeU2ywE+R+i58OcsoDa2jdz/++OP/IHw//uo/4SdL58MVb1/9NbbvA4RvfZHBt3TDcXpP1GOzZvHQ9xvzIe7Gz+95gjwJOVNTjIh5ZMP3JB3J5UrDo3fvnjz5M3ozvyi909OGETZzgmU6Ozyv8zw/QPgYevPNlRuO03uiPQbf/LzvNzY4d+Pnj/t43eBL0bCiVAoefEeRox//9N2fKqlK1IavUDIUIVoSwsQ3ZlfGfZYm+nOkvKYZ0wtWWprog1oVNWGshNkSx0q0wPZ51fCHm8C3yfBrFm82TO+LbJ29+F/eT1nxJ8Dn3y6hElEs9FUFHEsbvl896ffT734N/krpiQtfdGgoarog8qYXOqix7SseouvZkidXatvUZziHkm4WfEz7yYmCnGn6ba5VMHWJcLrzI/5g3iR5vsvgkxs3G6b3RQN5QuhtE3Q3fs/K3rAauijqVkgxkpW0A18qlXrya0TNhe8olVSUkGXyYjbimc1rV2tdVNTI1QU9iyqa00t4upL3AhCmVfkZEckEZeJsHO95naQuT3hMkZ+iPC/y7oqDmsu2WpwAY5PtH03C94TBVznqZ8OCGDK1FkiqU3fu2hWHtCN+QurqgknXuvHSjCLujBOT7m8SxVQs3LTjezCQi/F7Fj4QP5w2sk/4nLl4N3a+zS5qjpgm/AvaxzR1Ct9/6kgIH/xPop4nfOGwDJb1wffNdRvkXY13c/jU6+HzzJykjuF5HRWb8ua9o0dIdVFe/H++69RPgi/mLdeC9BkGZ1k5y/z+V99T+L79Hgm/liolW3n2U6YFkYNpGD4jNPdF7Bo19MHBR7juzcu+T+r6R8rNHN+JlX+nINg+TdMNCPuS//1HJ0ZHwm+FYdRRnqlkSMEI32/7rt8s8aDwSYVotF2Yxe5GNKxACBWpDGcyaaf6Fa85ZrsfyUXSrHy2UJgxraKuGb9Tow5iv/W5hOh5phXDGP73Z+M0HGb1/2HwlYYKeJ7JoOf5l+ty1vcJXz/iUg5+kFIhzNqJaspmWPLuRzCp2o74qeK7ztneU0URw7hdOSyGnPRWNudVaZOkIgoqr9k3sxGeF3B/c1iEkSIhTUN/LemrkYZr01K8eIo9rhBgC+S/7k8MxI5/vQjjvmgUpK/yu3/53//99tt/sQm/pd6lSlT6Cu+GJUUJl6J8IO4zrlvwu0/4LBxqRhoMiDtIvMU4pkT3voitqXjXqsr3Scm9ZjGk6X9zVbRYMJPVPCalgh13akO8FQ2EpjzMcgHhK3g1BExHBFIQrLVDktR8bVFDvmthMtfxLObb6iIm03wky4eUKDGjR+/0I5uiQ/joO/BJpKKGtGxEsPyPn3t9zW6Je4XPGz0xmfXt6+fZBE55Goe2puRP9qgAn4uWZtIWBbJGqkHblfV6r6YUHH/8hrBEtVCA1JANn2+8MG9hTuyXFYe+7iMp/uHITQzE5RsffJjzFDmjRIaSAR6MnmNkYc7zyJG+ypGe1fuGLggV/1kic9ftsn4g+PjgpnAKxy3h01Wbg2BPBIqFHz4ASFXSNDUIkUvWRU8QRX+V9w4fV/7ct1NJzZkaKJuhpRUqhmHoEVxihy+loZE7Sqds16VUCEWyUrul+RxPgO+v1/gu9wqfT1wMUIee/PF0/TClefkGqjy965CqpUnJAYAqz4gNLp+KpnlnlAG+lg90GFq2fA0P8By6UjLZjtDuMPhaXm6WwtfiPQDZWhfA1/KNqqD6rv3Kk6Pea8BzARZm3yxI8Lx0VjVCw0pICSm5dGqYTKX66X6Jui4pM2UoYd0sGMQ/eRzfhZsVP9wnfO2o7z19PjIc5pxLlWrPgneftqZQ8nJCMFlJMmVXzVV0MrSxFDGhw17kV3Hw9WjKN866jXK4IjkY8SyFUHCVpxmtuGdXUQ7ttnswQKhNCcLpqNvYkNCPEr1kR9fhvptROjjL5y93CNmOBc7C4ksk0kKWvGRBTwu5aJaYWbpca0rm32gE8WfdMtTosFUhY+cwjU4IeYp8p7ug9xw4uCIgoI/nqlN3qcNpjt0ayemLzYDqOb6CX+3lElt1MUYaK+UqWeCiM5SFytBpP297raYDH/FlBO2cve521tc9dy7Zyy1Ut1OJZ7SduNzePkuckePXwV2ehoTOjqGGK4WW0SbZUk7F5eyhYnz73Z9oIPjrZMmgi+2tsZ26C28uyXHi8gXwfTZtyO8ZvoojA2EzMGzOApRj7pzWOHDbDKhZomUdE8fUrl3PruUaM7B4drP5qPuocMV+VrvFazZ8rsG04TOnwVcYmwDYF8HLFD9N0PNXDsqj0dgWeRFEL9w3RbWlF0gpmaY2RK2A7bP3nn32N90wVDMFjkshYGMx73KZp4K3nZgWQzwQfLbQuEuTzgLUOHzOtY0SihC75UiYnU21ZUsJjnNYchwWseD5QWLfXi+Jlkq24nPbcRV8rvjZjcFLT/i4/DGaKPjncuLddgVETyxElaGua1qfjSTCZ7FA/p/+XZeGRrugTezzxHfbR1t4yBJHLvJTvJjr4JOSw+zPAJ/9NN0RCW0GfM5T7VmO1dmIOY4L81kd8RH1AHwIBvVwwSp6biu4qqmxtcebwecIMJt7zEF1x2I7sQ+DjCP8NPb3seVtvgJhIi9xFXA+RR6wdOD74f9/9923P7yLJo2oJGmqOIyOeb32K2JbWzg/ppyudA18JVUTtZz03uELl24GHwlqV5ybgu5/lhClvoVdj8miAx+1qENwXzFLMPRrJUG02v5e3Aw+ySnFYxNwpNW0e7MMAfazfOJsa9qr7WK2omQLekRUpJxYok0B+BRMZA/bVppYSlrPFsS+Ob6tQX0LoHHHifwFcp/0P6fBlyxFoyU6q9nJWkLuvcMn3BQ+x/hpWbu47eV4QRx17W22bF3RhY9KydAyIsmJaE4VQxWvHzeDz4tV2nbLeFd3HuSfkZ3Es53yJXkWmziElb5hpFkkoqWlEBM/ge2yzhHLIv1QH6KqqDn+hhHQ3OiC/Ca/8yKxDewnd75Mgw/3BbZwHjsvTGDO6YHgc40fVsBpyzyPyb01rFR0Er7xsfcKh1yX/4bwtR3GoMolZOctfZ7my+TsmJDVxP5pfvIMXZh0VhgixH6rZLZAlTrwhZIlxSyJKdArquItvnq0MDrmELaLMrkE63oT+DD7QdVQyHfvgeBLat6IeQ0L5FZ8xNhOh8/N0nikOdnmG8LnxY4SnUreDoWt/Hn+pAy+/UFi3zvUzN+yCMnxqiGVWu1sywSchEpbUEJpXUy2WyUJogpj4u1MpIXR2VYCXM/t8rP8eWLCeZkGHwakOEquucBmPhB8xA3cCTN9YYaq1xo/iZXZ8AUz3HZDozeATzdNUw+OltimJwV6e0B2Els7ifw2IS/y3PE0+EJ8BEyRGkoWtGHSkkKiVmlrvCpZyaFYyIIuH3u33en2wuiSoOHbyedPuMn3xabBl7Phc1acbw+fb7PET4XPNX5JGkzbE94dXzXnJ+sK6cOnC4Gti0CKdD18qZbWsnFyJjS4LKggNXfH1uVv0Pc8W93Pn5Jjd5+S4t9hGbb0dlgQo5IVTUaTQ9wvUci2k21LiooCHw2cLCGknJPsQPrAZzk4OE4AhucTRyxNgw9bhvB5KZJ+ILF7PXze1haJVnPF8fbwub+UqOPOs4quE6hNacxM+IiZUoMHGNlx25XwQZsdMZPc8UXt7fHfB/PEkaejfB7020XMPgieT5ua79A5VRhKaU2LSKUsGfaNkGKkhyRb0iPa2LkuqqolUyLT9eroFDRzPl9+Cg9YTYxvmp8CH+0LIuD6QZhX9HJxMzaDMtgpeQ6ZnbRyElV3gM81fjmqr5yJ4Facsu1tNnzwxJLhX2eyn3NT+NxtRCqODe++qHMCPj2mlS/QTO3E/qKimkhHhqQf6fv8GDFiZiMti/hOVWqTXCsXPFVJ6UciJJlLo/Sob2MgdavotHDwgPL48t8U+GjoiPA5u7DpapmbtVBnwufC7fXLHkrh7vC5Ex787RAzgUhO21xB5yLpdDoy2/PULdCtLKqPeADa6YBx+HQ3LhmDz3MHAlMHrBOO7mriBIWQZV2M5ORR1qqWNvFMM42eaabimWZ9Yuq+pZYQCyahYhbDCxXP0uVALz+lD3gxnnmZAp9hL5DZ90RNwWa629emzWlGrrJVvf0DNl5jl7eAz+XKo9vuck75QzAkuvwtzobP5EEn2YXpyPiLjMMn+eGDR3nqxCdL3isFq4kDFL4tljfbsveZtaCPujEWC6iaFdX1pHuioK5Hc9pYGUGFAW9TSOc+j1HWp4l9yno89MtNwMeCPYQPx1q17O08brtnJ0e9tKLi5gdoNS+xewf43GyX4UfLEQOXNcWTBvcz4FN9Ay658I1Jn506l1whI3Tiesbcv+Tlvj12MaLpztGIozJyyc6VgLaaxAiYWsqS14w0Pc+zgOd5itNOE4SKttoalZEl8qTq+Ti4b9dVTW4WsmJnDwvO8gxruW+T9cwd00l3zvJOVp8JiadMXdvBpMi1MaLuL++sJzGufn/a01fOuDDE7ImgBNvqV/Om6m+XM2vH1yjCY8OisbKeK+3z4DQ3PBqd0KGlEgJfdpj2DOsRfljy+breDjLvNF114iZu8igIlomzVfgq9ozx3Mr/Bp/xwndOTyWV9k0OAz1vQ/Bn8pnoRHVi+loxM24gvqnGp3A7QyHCuAm2e55te49rZ4medDMhajqJa5ht7ynRrI2o5NdXHiCOUKoGlpMoHgKgI2WHbjPClaTDhcEXEu1J6nfKpKz3AofQT5r+ngBuCKXovdPhtsb3OhbE6zCyzD6hGOZfUeMHipP3vcWl9KfImcst7R16rebwMGsrhFuVwNgxpgcQOYAR9Bk/Kyi3bA+V0y8vaQalwl5MEp7cF+fS0BW/kMArimq7CM6cNzT/zjCeVHz7GlRRk1It332+5UiKt8shoLidEVZDqWiKud04ysmWz7ME18ARfNNui5KKRiuul47570KgBnvLyvMwh+gB+N6HczfkuOuGeHr1Ptg/Jic41C9jXzh7lXzhQDq4XyZI4jDlkxD7/3Nfxk5cppjy3Br5ds1PvN/nZ1cIipPH+apdtZHxsJhWcUQmmJBVgluRQKpTgWvBMS2+Yr61bVLwZa3t9QYc0LF0Gj8GH81xe+/S0D0ZwaNwrMBEpHGif9a4GPhyE9wokaduizPUZ7Gvxpf80BTO/ItiCigoaMbY3bnnsTLnMb2AqNLveV4P32Se8JqXTazJpKugOJrnjvD5Ji3vfzFtfOMfP7HTLDQGnzo2u9jEmgZfcGw0//Kg4q/r0M5p/sAH31a+HMRPjbBZ3w5NI9XualC7zr0t5/cDTM93/EtG18M3nicUwte8KiSlg5svMZnnDnkAPggmS37e6jh8rpshuXNoLGYJbLuFmHh8nyfl4oNPtUp8YAuYweLAwDSw4dN9WRAx4GvbzvOYA36Q8MHHkf187LeBU+nUEIycFJmhPsUcqn0lMLvmnpfzq36eNHXthy+kzCTBxolLOdsoVZUX0zNe7fNR2/ASRWpYs3x+ai74CFJSA9dSKtAe1fXLI87voUrwWdmI/SxVEBVnI7wQYKq68GkiBGLZdFhEdw+3bTsAFII17CliWnY4ptrrEoV+BP0xb/vFdPhIfYkw/D6fC8wubMiYvvDdNUlwQVld+GvMEWgyHT7pKnJLmaWIwmuaaqSj14OHNExZgiZqmqbkKoE+jj+Bu/raVRTe7xPPylYiiqoalrdbb/wpDhep3W6jsOntfs4wsIY+o4bzczuiiJpo9FkfKjBThDDaO+YQjL3dv59YZbsxq3KzSyPss9ir5ws+n0ivGPos31ONcLk+8bk5C89fx84cp7POYof9xDXvq8wkTr/da0CcZJr6P8BJopLbCaZhqWal2lMYc8BRNDjS7R7Gi6RLg3eyk4+98QC0IrwaDsDnj/TS+M6Fm6RcePt1DF9OsbVmsW6n5P6R/hwOV6/f7vAlWnrmfuVryI5eMG1Acw0TLlwZ053d+HqXuMPOXcRib76as3WoGkQM8PTjh/+x67m559/EYhecGzFk6gPCIoefWyCWBoOlGukuDZb871jWBoMb1K0NqjcoVR04J1d15Hh8Rn860I7BIMPQbdAa9b14fJdkNuN3PPnKC+OZJzx+Mgo5O8OpwTrqDDzZOonFXv3VWJiiM/nKtL9rqy4oX74G8PZtJshsvSn3kPf5z/5HAXpxebNO6uvxdb9gVOOLN6g7iG/AZ7d29RRD5US4Gs6OgTzrBIPupiwfLsfZIUm78T1aL7Oyi8JxN/icHDZKH0pNeCLxu51gim6Q6WXoxkw2+tzLUSz/zW+FuSCChqJmTffPhDnYzc199XU+Ntre8gSYW1+Ci04HWJZ//j8KIDfxPKRqPCBIDXl+RnE/DeRNaGgzfrVGPJSLIF3xdUKdhFlQF5uL+FgsS/ZkgK8Wb8JQrMAP9TtpII55hWj7qOc5ucx4QHNmpJaR9zo1Us04AMCd01hs9MvnC/63jvr2G42+OEZYePvFKBY7RQPniG9dJsX4oMtxu/iA4FqtXWbLo32XDmbS6gQ9BbKTAZwcnwLfDQ0OnayyfE1ZLNWQ8fSq6+CDz3jXrQFzg6zLdz5si4066k6613RK5rB8Ti1UvUjWG10YAC9gI9zOWSz2+kvVE8GwkcXYxDu+bG7h729iscuXHPEqovQNlurzy1y9ioeNBHvLMcAYJk+f7uzsvHz5cnv7xb8yuri4OD09PUc6Pj7+DdIZ0iXSCKlMKV/O552J4YOv1mhkyNIuPLdbbTRIo9Go1uvVRhUm6MouFoJf6rUVkIxucXelV6elABK52sjArQaBTzxmpQPfa4SrdpFPJoMXZLe5DowAPtLYc0+Rqy/t7TlHUjD4utgaxqbY3AA+8829BoxBdXcvYzdrsDugDehxtEHd+go71ZNb2l0Z1N1bTGOqaYg16HYwfsr5RS/ZggNpLB7W4g0/CIjg/rNyrPz5W9cKagXivXEIruYvy7HYyT4hY/VqmeYKoQ3gEmObrLktP34UwJcBABFBF8KZICLlJ+HrNOW1w2YcOtJdhnEuxuVDDoziGtzcXULlV4zHV2Q5Dppwubobz3Q35A16st/GYm9Djg9II06Pd8nE5cUaXIA/Ph8fwI9FstKEUnK9Ks8DA6ogEbF4sSg7ho3Bx202d0HuwPbhsS0b8M/8vFwHMzhYA/7QrMVdGTQrqOKBDF5QLx7vyfEmin99vlndAGaZ+OFA3sDha+NQK6U2FRht/DhT2ne25A4S05WLVRr7BQAkq8ex2DdOJGGQdM5Oe0GQB3HC8dNx7KBSJzPoblA9TJ5NvOLATcBny9+zfw1I4KkL37ELXxC/KfDBIMsZstzcQ6u2QbhFeYA3uLq8yMEINki9ubgGfgVYM5iqMFQ9eRlPZpQJVsDPTXZKzhrarhVUl0UosIz+SNFWnqAL95qb7MnxQ1SOK374yHpzHeuv2IYVKi+hi7QCcgl6F57S4ADbDbkGHIHtxuIG3MEDuXYB3iVo0wZo35U4FXCa8WMZKHH6osu2vd7H7Q7iXfQ16kE8QAQvKIAIWcQQBIOGDjTIc13NQIVMb319iQV9W+PC58Ln4ufAN0P8AtJ3A/jkdXvYET6yi6NY3IULBAIgqTdlULEDMo/DAw6FAx+HWg9GlLOPqKIjv7wIv6/1bPhWPNvHkEb3eoBeyloAvsMJ+CgHwAenFq1azWTQsarCw7kNQJdOs7osg64e1DPYcNpgMFSK7Wao2qztBqNLJn7AjVrc+i43rkO3nsViX4cEO8hDKyqA2jzZmgIeR6ornaUOU8PkbMrfU5kUv0nteTodvssbwLeGOK3b8A1wlOYbOMSdzh78DPBRU7W2yPSfDz4Y4gHJ2O4qxHf1uowiEq/Nho/SygR8yxPwcfH4INOJw9Sxqy7Jm51OD74DfNDsTcAQWlFnTVrHW6whel8ThTCvGb5FqyAdJE5s/IpUYtbmMxPqkGydx0Zfudnsha9GsfNpkoeTeA+mFONA9ypNhe8a9RlAcKb8la+HDySqW0MRWtxcXz883HXhq8mL8kYtCN+KvEv2ijbPeTlTXVmTq5kmuQq+zt7G/GIQvnU8VXkMvq68uI4NcOErNufx+pAD+AYMPuBM4VtpbrBbjKs+LFWiV50PtY3bPZn9Q/Dj3amwHJRjn9sWcOGLGM788SL4X32w2F07ZBzIauJe/hAcTO1Z8JF5udrbs0cTyYGP1DblxWYQvgY4O3HnYPc1ubfX6MkrPaw4E74i+jRB6eM2MMafgE+2GTvwYRNp4yfhc/jdlE4T9hIPaSxl4o3OhPQxdE5jbxS6z/Ob2Pmk5FHsM0uH3VrNlr2DxOnt2nFH4po00zFAn3EcvhV5bzmD9mmXlXXho8fQZQLw1UGKNxymS/LhfL0hr2+iWzkLvkx8c0J5AlKZCfjqceexdtWevGk33oWvYSvPIjbpVnRub3ghmSKYhGIGEz5TBHAn9uqtqiqvY9tT7tYWSb1a68i9AXHQm3y16Oeh9TiKSBElZxw+kCgcpx69qNcd+OoYV23AVwc+OnDri16E3ZEXl1Hn0cG2PU836+LA10NE9+IB+IoUmHHXZRFFktRc+Gysui58A1KLI+6cfetWZ+SdJ7bZhuhul8Sre4ekxk3ToKuxV0rodWxn7B7LMdQbA3mvVm/YC0U7iXv7Q1Rg5+H5m1TaMLijHwOMFWDa0yOOu5iKrK/3ED5M8NZRUtFB72FmFO426h03YUKJowO+iSEIIIAn3i4BcDUuAN8ShGdgRe2zxCl8EFig77oGwR82geAsodjP10BY61iVpoRl4Mzt7aJ6R3Rx3iw31zhuvVOXMWje3bvNCJwkTpnxgocO5HpvDTPm0/B7880YelCj2sDZ0ol3OUwnMDYn96Q5kbjD+GZxGaPnGoTk1S5+1CEKL8K9ZWbNIICfj+/S/2/WKWBLexB9dRep27MuY8gOw7vuMT1Efns0iK/GERNgC+p2Gdhym4w3spGXeyzSx5SBPN+MH+LzGnEI5uvzWGwpLjchINmEmxh3QrOoGQaei/Iyhu3yfB3KzHdRCTRlcPvprfXbZUl3EqN9x4EpdnqZ+V4Vtf44fk/z+aDmJJ0Bx2GySe4MNom7Rns55Z3an5EaxRW6WtTNZDdH7hEAAALaSURBVDK1uvOBHajZKZFMsUjTKUCotTpLK3iNpTqoS4s03Fv3ZSe7Gc7+AB6ZDHCvFXt1ytbhDWyKSxxc1Yj97EyH5b5pDVaswypzg5Velz2QVa0Vi5ijxdv1DmtVt1ds+G7dimDEL2yrRQ7Xqh1yuLvWYYkvO7FL752cBtHrHoLqaHTjmeoyOezaoredKH+Ma7T1axYePmx6li/TcIAsdapyLSNz9ZVips4NSAN0cZet4jk7WIgnfWAv6h0Abzljg3cwmsy1fPjULWJ65mOm/ePEGUpNvVof1AdFnI3FlUGzXq+hla51lpyIkAx2ia2bObJRBE1ONhzw9s8Tl/sP2Ys7Ui2+6wZ9HyutjhLnCGAXXVeSWa7Hu7tLHJhV0lsm1S49aAf/64L7BHZggKYeU6UZx/0E8Mof51/vgyDh1gbnw6OdcuLMWUUgtaV1Ll7vope8traMphwUJchityF314u93Q7NJSz1aoRF7avHifJH+5cz77qf6AOjnVEif8IWzzHS3W0UUVPOD+Qqqa4Uq3J1ObNRm+/u9Ui1CtGJ492Q/RflxGjnH2MMPmo6uMgnyi/oKixeZhoY4dR6G+RwpdFpAqByZrc6WCNL67ibhc7a/W0A/fxjdDf/IenpcT4xesbW0RHFzgAiu8agWAd9udsbrOwtsfiJyd32ZSJ//Ch4HxJtPT0HBF/YOyHoT11S69QzNTSA9Jr+vkWxezrl3MBHelgCBBMJKlVOsGff8KK/p8dY4hG7D5S4HZCtGcvqIHj5xOXLR+w+aNq/SCROJhcgCPcskTj9GAP0T424k7y9oOQTvZ184uRR8D4O2rpIjIIvcp4lTh/B+3joYJTw1vlweekxxvu46DThnBdBnuHi7iN9XPQycc5SoRdoCR/pY6NVih85nzjg8ZE+ClrNn+LxkY/ofaS0k3g57WT4R/pI6CSfv5ed04/08xAeH/lIHy1tPcZ7Hwb9H98HAXMe6ILJAAAAAElFTkSuQmCC"
+        alt="not available" style="float: left;height:50px;width:220px;">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent"
+        style="margin-left:20%;font-size: 20px;">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/accesslist">User</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logs">Database</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logininfo">LoginData</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#about">About</a>
+          </li>
+        </ul>
+        <div>
+          <!-- <b style="color:rgb(0, 0, 0);">Hello,</b>  -->
+          <b id="name" style="color:rgb(0, 0, 0);">Hello,{{ name }}</b>
+        </div>
+      </div>
+      
+    </div>
+  </nav>
+  <div>
+    
+    <!-- <div>
+      <a href="/addroom"><button class="button"  style="vertical-align:middle"><span>Add Room</span></button></a>
+    </div> -->
+
+
+    {% for data in mymembers %}
+    <div class="row1">
+      <div class="column column1">
+        <div class="card">
+          <div class="card-body">
+            <fieldset class="fieldset">
+
+              <!-- Room NO  -->
+              <legend>
+                <p style="text-align: center;">{{"ROOM NO. : "}}<b>{{ data.rid }}</b></p>
+              </legend>
+
+              <ul class="list-group list-group-flush">
+
+                <li class="list-group-item">
+                  <div class="div_ac div_acc">
+                      <div style="float:left;">
+                      <label><b>{{ data.ac1name }}</b></label></div>
+                  <div style="float:right;">
+                      <label class="switch">
+
+                        {% if data.ac1  %}
+                        <input type="checkbox" value={{ data.rid }} onclick='handleClick(this,"ac1");' checked>
+                        {% else %}
+                        <input type="checkbox" value={{ data.rid }} onclick='handleClick(this,"ac1");' >
+                        {% endif %}
+
+                        <span class="slider round"></span>
+                      </label>
+                    </div>
+                  </div>
+                </li>
+
+
+
+                <li class="list-group-item">
+                  <div class="div_ac div_acc">
+                    <div style="float: left;">
+                      <label><b>LOCK {{data.ac1name }}</b></label>
+                    </div>
+                <div style="float: right;">
+                  <label class="switch">
+
+                    {% if data.ac2lock  %}
+                    <input type="checkbox" value={{ data.rid }} onclick='handleClick(this,"ac1lock");' checked>
+                    {% else %}
+                    <input type="checkbox" value={{ data.rid }} onclick='handleClick(this,"ac1lock"); '>
+                    {% endif %}
+                   
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+                </div>
+                </li>
+
+                <li class="list-group-item">
+                  <div class="div_ac div_acc">
+                    <div style="float: left;">
+                      <label><b>{{data.ac2name }}</b></label>
+                    </div>
+                    <div style="float:right;">
+                  <label class="switch">
+
+                    {% if data.ac2  %}
+                    <input type="checkbox" value={{ data.rid }} onclick='handleClick(this,"ac2");' checked>
+                    {% else %}
+                    <input type="checkbox" value={{ data.rid }} onclick='handleClick(this,"ac2");' >
+                    {% endif %}
+                    
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+              </div>
+            </li>
+
+            <li class="list-group-item">
+              <div class="div_ac div_acc">
+                <div style="float: left;">
+                  <label><b>LOCK {{ data.ac2name }}</b></label>
+                </div>
+                <div style="float: right;">
+                  <label class="switch">
+                    {% if data.ac2lock  %}
+                    <input type="checkbox" value={{ data.rid }} onclick='handleClick(this,"ac2lock");' checked>
+                    {% else %}
+                    <input type="checkbox" value={{ data.rid }} onclick='handleClick(this,"ac2lock");' >
+                    {% endif %}
+                  
+                    
+                  <span class="slider round"></span>
+                  </label>
+                </div>
+              </div>
+            </li>
+                <div>
+                  <b>{{ data.ping  }}</b>
+                  <input type="button" name= {{ data.ac1 }} value="Delete" onclick='Delete(this);'>
+                  
+                </div>
+              </fieldset>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+        {% endfor %}
+
+
+      </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+      <script type="text/javascript">
+        function getCookie(name) {
+          let cookieValue = null;
+          if (document.cookie && document.cookie !== "") {
+            const cookies = document.cookie.split(";");
+            for (let i = 0; i < cookies.length; i++) {
+              const cookie = cookies[i].trim();
+              // Does this cookie string begin with the name we want?
+              if (cookie.substring(0, name.length + 1) === (name + "=")) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+              }
+            }
+          }
+          return cookieValue;
+        }
+
+        function handleClick(checkbox,Data) {
+          $.ajax({
+            url: "cheakbox",
+            type: "POST",
+            dataType: "json",
+            data: JSON.stringify({'rid':checkbox.value,'name':Data ,'value': checkbox.checked,}),
+            //data: JSON.stringify({'fruit': selected})
+            headers: {
+              "X-Requested-With": "XMLHttpRequest",
+              "X-CSRFToken": getCookie("csrftoken"),
+            },
+            success: (data) => {
+              console.log(data);
+            },
+            error: (error) => {
+              console.log(error);
+            }
+          });
+        }
+
+        function Delete(RoomNo)
+          {
+            let text;
+            let data = prompt("Enter your Room name (" +RoomNo.name + ") below to confirm you want to permanently delete it");
+            if (data == null || data == "") {
+              text = "User cancelled the prompt.";
+            }  
+            if(data == RoomNo.name){
+              text = "deleted";
+              fetch("/deleteRoom",
+              {
+                headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json'
+                },
+                method: "POST",
+                body: JSON.stringify({ rid : RoomNo.name, name: "admin" })
+              })
+            }
+
+            console.log(text)
+          }
+          
+      </script>
+</body>
+
+</html>
