@@ -1,23 +1,27 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,JsonResponse
 from .models import *
 from django.contrib.auth.models import User, auth
 from django.template import loader
 import json
+from django.core import serializers
+
 from datetime import datetime
 from django.utils import timezone
 
-# Create your views here.
+# Create your views here
+
+# serialized_queryset = serializers.serialize('json', )
+
 
 def espac(request):
     roomid = request.GET['rid']
     if roomdata.objects.filter(rid=roomid).exists():
         ac1c = request.GET['ac1']
         ac2c = request.GET['ac2']
-        data = roomdata.objects.filter(rid = roomid).values('ac1','ac2') 
         roomdata.objects.filter(rid = roomid).update(ping = datetime.now(tz=timezone.utc))
         datalogs(rid=roomid,ac1cur=ac1c,ac2cur=ac2c).save()
-        return HttpResponse(data)
+        return JsonResponse(list(roomdata.objects.filter(rid = roomid).values('ac1','ac2')), safe=False)
     return (HttpResponse("Sas"))
 
     
