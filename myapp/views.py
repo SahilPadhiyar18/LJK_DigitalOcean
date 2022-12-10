@@ -34,7 +34,7 @@ def home(request):
     return HttpResponse(template.render(context, request)) 
 
 def data(request):
-    mydata = datalogs.objects.all().order_by('rid').values()
+    mydata = datalogs.objects.all().order_by('-id').values()
     template = loader.get_template('home.html')
     context = {
         'mymembers': mydata,
