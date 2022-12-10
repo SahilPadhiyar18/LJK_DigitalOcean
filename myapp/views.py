@@ -21,7 +21,7 @@ def espac(request):
         ac2c = request.GET['ac2']
         roomdata.objects.filter(rid = roomid).update(ping = datetime.now(tz=timezone.utc))
         datalogs(rid=roomid,ac1cur=ac1c,ac2cur=ac2c).save()
-        return JsonResponse(list(roomdata.objects.all()), safe=False)
+        return JsonResponse(list(roomdata.objects.all().values()), safe=False)
     return (HttpResponse("Sas"))
 
     
