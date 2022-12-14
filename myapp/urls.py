@@ -12,6 +12,4 @@ urlpatterns = [
     path('population-chart/',population_chart, name='population-chart'),
     path('acdetails',acdetails, name='acdetails'),
     path('acupdate',acupdate, name='acupdate'),
-
-
 ]
