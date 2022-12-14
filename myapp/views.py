@@ -26,24 +26,24 @@ def espac(request):
     return (HttpResponse("Sas"))
 
     
-# def home(request):
-#     mydata = ac.objects.all().order_by('id').values()
-#     template = loader.get_template('index.html')
-#     context = {
-#         'mymembers': mydata,
-#         }
-#     return HttpResponse(template.render(context, request)) 
-
 def home(request):
-    try:
-        mydata = ac.objects.all().order_by('id').values()
-        template = loader.get_template('new.html')
-        context = {
-            'mymembers': mydata,
-            }
-        return HttpResponse(template.render(context, request)) 
-    except:
-        return HttpResponse("done")
+    mydata = ac.objects.all().order_by('id').values()
+    template = loader.get_template('index.html')
+    context = {
+        'mymembers': mydata,
+        }
+    return HttpResponse(template.render(context, request)) 
+
+# def home(request):
+#     try:
+#         mydata = ac.objects.all().order_by('id').values()
+#         template = loader.get_template('new.html')
+#         context = {
+#             'mymembers': mydata,
+#             }
+#         return HttpResponse(template.render(context, request)) 
+#     except:
+#         return HttpResponse("done")
 
 
 def data(request):
