@@ -35,12 +35,15 @@ def espac(request):
 #     return HttpResponse(template.render(context, request)) 
 
 def home(request):
-    mydata = ac.objects.all().order_by('id').values()
-    template = loader.get_template('new.html')
-    context = {
-        'mymembers': mydata,
-        }
-    return HttpResponse(template.render(context, request)) 
+    try:
+        mydata = ac.objects.all().order_by('id').values()
+        template = loader.get_template('new.html')
+        context = {
+            'mymembers': mydata,
+            }
+        return HttpResponse(template.render(context, request)) 
+    except:
+        return HttpResponse("done")
 
 
 def data(request):
@@ -106,6 +109,6 @@ def acupdate(request):
     if ac.objects.filter(espid=request.GET['espid']).exists():
         esp32id = request.GET['espid']
         return JsonResponse(list(ac.objects.filter(espid=esp32id).values('no','value')), safe=False)
-    # return JsonResponse(list(ac.objects.all().values('','value')), safe=False)
-    # # else:    
-    # return (HttpResponse("Sas"))  
+#     return JsonResponse(list(ac.objects.all().values('','value')), safe=False)
+    else:    
+        return (HttpResponse("Sas"))  
