@@ -12,4 +12,6 @@ urlpatterns = [
     path('population-chart/',population_chart, name='population-chart'),
     path('acdetails',acdetails, name='acdetails'),
     path('acupdate',acupdate, name='acupdate'),
+    path('home1',home1, name='home1'),
+
 ]
