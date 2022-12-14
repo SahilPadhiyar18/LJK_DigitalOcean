@@ -4,4 +4,4 @@ from .models import *
 
 admin.site.register(roomdata)
 admin.site.register(datalogs)
-admin.site.register(ac)
+admin.site.register(roomac)
