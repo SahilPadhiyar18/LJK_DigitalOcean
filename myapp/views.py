@@ -25,9 +25,17 @@ def espac(request):
     return (HttpResponse("Sas"))
 
     
+# def home(request):
+#     mydata = roomdata.objects.all().order_by('rid').values()
+#     template = loader.get_template('index.html')
+#     context = {
+#         'mymembers': mydata,
+#         }
+#     return HttpResponse(template.render(context, request)) 
+
 def home(request):
-    mydata = roomdata.objects.all().order_by('rid').values()
-    template = loader.get_template('index.html')
+    mydata = ac.objects.all().order_by('id').values()
+    template = loader.get_template('new.html')
     context = {
         'mymembers': mydata,
         }
@@ -42,11 +50,17 @@ def data(request):
     return HttpResponse(template.render(context, request)) 
 
 
+# def cheakbox(request):
+#     try:
+#         data = json.load(request)
+#         roomdata.objects.filter(rid = data.get('rid') ).update(**{data.get('name'):data.get('value')})
+#         return HttpResponse("data")
+#     except:
+#         return HttpResponse("pass")
 def cheakbox(request):
     try:
         data = json.load(request)
-        roomdata.objects.filter(rid = data.get('rid') ).update(**{data.get('name'):data.get('value')})
+        ac.objects.filter(espid = data.get('espid') , no = data.get('no')).update(**{data.get('name'):data.get('value')})
         return HttpResponse("data")
     except:
         return HttpResponse("pass")
-    
