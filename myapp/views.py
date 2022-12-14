@@ -35,7 +35,7 @@ def home(request):
     return HttpResponse(template.render(context, request)) 
 
 def home1(request):
-    mydata = roomdata.objects.all().order_by('id').values()
+    mydata = ac.objects.all().order_by('id').values()
     template = loader.get_template('new.html')
     context = {
         'mymembers': mydata,
