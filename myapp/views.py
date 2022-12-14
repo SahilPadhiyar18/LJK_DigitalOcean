@@ -26,22 +26,21 @@ def espac(request):
     return (HttpResponse("Sas"))
 
     
-def home(request):
-    mydata = roomdata.objects.all().order_by('id').values()
-    template = loader.get_template('index.html')
-    context = {
-        'mymembers': mydata,
-        }
-    return HttpResponse(template.render(context, request)) 
+# def home(request):
+#     mydata = ac.objects.all().order_by('id').values()
+#     template = loader.get_template('index.html')
+#     context = {
+#         'mymembers': mydata,
+#         }
+#     return HttpResponse(template.render(context, request)) 
 
-def home1(request):
-    mydata = roomac.objects.all().order_by('id').values()
+def home(request):
+    mydata = ac.objects.all().order_by('id').values()
     template = loader.get_template('new.html')
     context = {
         'mymembers': mydata,
         }
     return HttpResponse(template.render(context, request)) 
-
 
 
 def data(request):
@@ -62,12 +61,31 @@ def cheakbox(request):
         return HttpResponse("pass")
     
 def chart(request):
-    return HttpResponse("pass")
-    
+    labels = []
+    data = []
+    queryset = datalogs.objects.all()
+    for person in queryset:
+        labels.append(person.rid)
+        data.append(person.ac2cur)
+
+    return render(request,'data.html',{
+        'labels':labels,
+        'data':data
+    }) 
 
 def population_chart(request):
-    return HttpResponse("pass")
+    labels = []
+    data = []
+    queryset = datalogs.objects.all()
+    for person in queryset:
+        print(person.time)
+        labels.append(person.time)
+        data.append(person.ac2cur)
 
+    return JsonResponse(data={
+        'labels': labels,
+        'data': data,
+    })
 
 
 def acdetails(request):
