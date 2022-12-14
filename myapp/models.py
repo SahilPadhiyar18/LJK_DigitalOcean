@@ -1,6 +1,6 @@
 from django.db import models
-from django.utils.timezone import now
-from datetime import datetime
+from django.utils import timezone
+
 # Create your models here.
 
 class roomdata(models.Model):
@@ -16,14 +16,15 @@ class roomdata(models.Model):
     ping = models.DateTimeField(auto_now_add=True)
 
 class ac(models.Model):
-    no = models.IntegerField)
+    no = models.IntegerField()
     rid = models.CharField(max_length=20)
     espid = models.TextField(max_length=20)
     panelid = models.TextField(max_length=20)
     name = models.TextField(max_length=20)
     value = models.BooleanField(default=False)
     lock = models.BooleanField(default=False)
-    ping = models.DateTimeField(auto_now_add=True) 
+    ping = models.DateTimeField(auto_now_add=True)
+
 
 class datalogs(models.Model):
     rid = models.CharField(max_length=20)
