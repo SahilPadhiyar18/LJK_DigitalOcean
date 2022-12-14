@@ -23,6 +23,9 @@ urlpatterns = [
     path('delete', include("myapp.urls")),
     path('cheakbox', include("myapp.urls")),
     path('home', include("myapp.urls")),
+    path('chart', include("myapp.urls")),
+    path('population', include("myapp.urls")),
+    path('acdetails', include("myapp.urls")),
+    path('acupdate', include("myapp.urls")),
 
 ]
-
