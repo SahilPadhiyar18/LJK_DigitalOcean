@@ -26,13 +26,22 @@ def espac(request):
     return (HttpResponse("Sas"))
 
     
+# def home(request):
+#     mydata = ac.objects.all().order_by('id').values()
+#     template = loader.get_template('index.html')
+#     context = {
+#         'mymembers': mydata,
+#         }
+#     return HttpResponse(template.render(context, request)) 
+
 def home(request):
-    mydata = roomdata.objects.all().order_by('id').values()
-    template = loader.get_template('index.html')
+    mydata = ac.objects.all().order_by('id').values()
+    template = loader.get_template('new.html')
     context = {
         'mymembers': mydata,
         }
     return HttpResponse(template.render(context, request)) 
+
 
 def data(request):
     mydata = datalogs.objects.all().order_by('id').values()
@@ -46,13 +55,38 @@ def data(request):
 def cheakbox(request):
     try:
         data = json.load(request)
-        roomdata.objects.filter(rid = data.get('rid') ).update(**{data.get('name'):data.get('value')})
+        ac.objects.filter(espid = data.get('espid') , no = data.get('no')).update(**{data.get('name'):data.get('value')})
         return HttpResponse("data")
     except:
         return HttpResponse("pass")
     
 def chart(request):
     return HttpResponse("pass")
+    
 
 def population_chart(request):
     return HttpResponse("pass")
+
+
+
+def acdetails(request):
+    try:
+        esp32id = request.GET['espid']
+        # print("A")
+        if ac.objects.filter(espid=esp32id).exists():
+            data = 0 
+            for i in ac.objects.filter(espid=esp32id).values('no'):
+                data = data*10 + i['no']
+            return HttpResponse(data)
+        else:
+            return HttpResponse("Name Not Found")
+    except: 
+        return HttpResponse("error 404")
+
+def acupdate(request):
+    if ac.objects.filter(espid=request.GET['espid']).exists():
+        esp32id = request.GET['espid']
+        return JsonResponse(list(ac.objects.filter(espid=esp32id).values('no','value')), safe=False)
+    # return JsonResponse(list(ac.objects.all().values('','value')), safe=False)
+    # # else:    
+    # return (HttpResponse("Sas"))  
