@@ -15,7 +15,7 @@ class roomdata(models.Model):
     ac2lock = models.BooleanField(default=False)
     ping = models.DateTimeField(auto_now_add=True)
 
-class ac(models.Model):
+class roomac(models.Model):
     no = models.IntegerField()
     rid = models.CharField(max_length=20)
     espid = models.TextField(max_length=20)
