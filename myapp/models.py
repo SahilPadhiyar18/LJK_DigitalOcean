@@ -20,6 +20,7 @@ class ac(models.Model):
     no = models.IntegerField()
     rid = models.CharField(max_length=20)
     espid = models.TextField(max_length=20)
+    acesp = models.BooleanField(default=False)
     panelid = models.TextField(max_length=20)
     name = models.TextField(max_length=20)
     value = models.BooleanField(default=False)
