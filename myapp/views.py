@@ -5,7 +5,7 @@ from django.contrib.auth.models import User, auth
 from django.template import loader
 import json
 from django.core import serializers
-
+from django.views.decorators.csrf import csrf_exempt
 from datetime import datetime
 from django.utils import timezone
 
@@ -51,7 +51,7 @@ def data(request):
         }
     return HttpResponse(template.render(context, request)) 
 
-
+@csrf_exempt
 def cheakbox(request):
     try:
         data = json.load(request)
