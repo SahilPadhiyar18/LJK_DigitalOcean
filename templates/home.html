@@ -1,22 +1,29 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <style>
+      td {
+        text-align: center;
+      }
+    </style>
+  </head>
 <body>
 
 <table border='1' style="width:100%" >
   <tr>
     <th>id</th>
-    <th>rid</th>
-    <th>ac1cur</th>
-    <th>ac2cur</th>
+    <th>espid</th>
+    <th>no</th>
+    <th>current</th>
     <th>time</th>
-
+    
   </tr>
   {% for x in mymembers %}
     <tr>
         <td>{{ x.id }}</td>
-        <td>{{ x.rid }}</td>
-        <td>{{ x.ac1cur }}</td>
-        <td>{{ x.ac2cur }}</td>
+        <td>{{ x.espid }}</td>
+        <td>{{ x.no }}</td>
+        <td>{{ x.accur }}</td>
         <td>{{ x.time }}</td>
         <!-- <td>{{ x.ac1 }}</td>
         <td>{{ x.ping }}</td> -->
@@ -24,8 +31,6 @@
     </tr>
   {% endfor %}
 </table>
-
-<p>In views.py you can see how to import and fetch members from the database.</p>
 
 </body>
 </html>   
