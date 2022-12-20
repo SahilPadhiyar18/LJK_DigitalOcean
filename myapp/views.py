@@ -111,12 +111,14 @@ def acupdate(request):
             acdatalogs(espid=esp32id,no=2,accur=request.GET['ac2cur']).save()
             acdatalogs(espid=esp32id,no=3,accur=request.GET['ac3cur']).save()
             if( ac.objects.filter(espid=esp32id,no=1).exists()):
-                ac.objects.filter(espid = esp32id,no=1).update(ping = datetime.now(tz=timezone.utc))
+                ac.objects.filter(espid = esp32id,no=1).update(acesp = int(request.GET['ac1']),ping = datetime.now(tz=timezone.utc))
             if( ac.objects.filter(espid=esp32id,no=2).exists()):
-                ac.objects.filter(espid = esp32id,no=2).update(ping = datetime.now(tz=timezone.utc))
+                ac.objects.filter(espid = esp32id,no=2).update(acesp = int(request.GET['ac1']),ping = datetime.now(tz=timezone.utc))
             if( ac.objects.filter(espid=esp32id,no=3).exists()):
-                ac.objects.filter(espid = esp32id,no=3).update(ping = datetime.now(tz=timezone.utc))
+                ac.objects.filter(espid = esp32id,no=3).update(acesp = int(request.GET['ac1']),ping = datetime.now(tz=timezone.utc))
+            print("try done")
         except:
+            print("pass")
             pass
         return JsonResponse(list(ac.objects.filter(espid=esp32id).values('no','value')), safe=False)
     # return JsonResponse(list(ac.objects.all().values('','value')), safe=False)
