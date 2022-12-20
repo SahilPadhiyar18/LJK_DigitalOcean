@@ -45,7 +45,7 @@ def home(request):
 
 
 def data(request):
-    mydata = datalogs.objects.all().order_by('id').values()
+    mydata = acdatalogs.objects.all().order_by('id').values()
     template = loader.get_template('home.html')
     context = {
         'mymembers': mydata,
