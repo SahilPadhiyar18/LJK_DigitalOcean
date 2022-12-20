@@ -6,6 +6,7 @@ from django.template import loader
 import json
 from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
+
 from datetime import datetime
 from django.utils import timezone
 
@@ -56,9 +57,9 @@ def cheakbox(request):
     try:
         data = json.load(request)
         ac.objects.filter(espid = data.get('espid') , no = data.get('no')).update(**{data.get('name'):data.get('value')})
-        return HttpResponse("data")
+        return JsonResponse({'foo':'bar'})
     except:
-        return HttpResponse("pass")
+        return JsonResponse("pass")
     
 def chart(request):
     labels = []
@@ -105,6 +106,18 @@ def acdetails(request):
 def acupdate(request):
     if ac.objects.filter(espid=request.GET['espid']).exists():
         esp32id = request.GET['espid']
+        try:            
+            acdatalogs(espid=esp32id,no=1,accur=request.GET['ac1cur']).save()
+            acdatalogs(espid=esp32id,no=2,accur=request.GET['ac2cur']).save()
+            acdatalogs(espid=esp32id,no=3,accur=request.GET['ac3cur']).save()
+            if( ac.objects.filter(espid=esp32id,no=1).exists()):
+                ac.objects.filter(espid = esp32id,no=1).update(ping = datetime.now(tz=timezone.utc))
+            if( ac.objects.filter(espid=esp32id,no=2).exists()):
+                ac.objects.filter(espid = esp32id,no=2).update(ping = datetime.now(tz=timezone.utc))
+            if( ac.objects.filter(espid=esp32id,no=3).exists()):
+                ac.objects.filter(espid = esp32id,no=3).update(ping = datetime.now(tz=timezone.utc))
+        except:
+            pass
         return JsonResponse(list(ac.objects.filter(espid=esp32id).values('no','value')), safe=False)
     # return JsonResponse(list(ac.objects.all().values('','value')), safe=False)
     # # else:    
