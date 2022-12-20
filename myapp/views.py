@@ -113,9 +113,9 @@ def acupdate(request):
             if( ac.objects.filter(espid=esp32id,no=1).exists()):
                 ac.objects.filter(espid = esp32id,no=1).update(acesp = int(request.GET['ac1']),ping = datetime.now(tz=timezone.utc))
             if( ac.objects.filter(espid=esp32id,no=2).exists()):
-                ac.objects.filter(espid = esp32id,no=2).update(acesp = int(request.GET['ac1']),ping = datetime.now(tz=timezone.utc))
+                ac.objects.filter(espid = esp32id,no=2).update(acesp = int(request.GET['ac2']),ping = datetime.now(tz=timezone.utc))
             if( ac.objects.filter(espid=esp32id,no=3).exists()):
-                ac.objects.filter(espid = esp32id,no=3).update(acesp = int(request.GET['ac1']),ping = datetime.now(tz=timezone.utc))
+                ac.objects.filter(espid = esp32id,no=3).update(acesp = int(request.GET['ac3']),ping = datetime.now(tz=timezone.utc))
             print("try done")
         except:
             print("pass")
