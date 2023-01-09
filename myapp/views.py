@@ -45,12 +45,44 @@ def home(request):
 
 
 def data(request):
-    mydata = acdatalogs.objects.all().order_by('-id').values()
-    template = loader.get_template('home.html')
-    context = {
-        'mymembers': mydata,
+    if request.method =='POST':
+        data = request.POST['no']
+        name = request.POST['name']
+        print(request.POST['endTime'])
+        start_date=request.POST['startTime']
+        end_date=request.POST['endTime']
+        mydata = acdatalogs.objects.filter(espid=name , no=data,time__range=[start_date,end_date]).order_by('-id') .values()
+        template = loader.get_template('graph.html')
+        context = {
+            'mymembers': mydata,
         }
-    return HttpResponse(template.render(context, request)) 
+        return HttpResponse(template.render(context, request)) 
+    else:
+        mydata = acdatalogs.objects.all().distinct("espid").values()
+        template = loader.get_template('graph.html')
+        print("abd")
+        context = {
+            'mymembers': mydata,
+            }
+        return HttpResponse(template.render(context, request)) 
+    
+@csrf_exempt
+def get_data(request,*args,**kwargs):
+    Data = json.load(request)
+    current = []
+    time = []
+    data = Data.get('no')
+    name = Data.get('name')
+    start_date = Data.get('startTime')
+    end_date = Data.get('endTime')
+    for i in  acdatalogs.objects.filter(espid=name , no=data,time__range=[start_date,end_date]).order_by('-id') .values():
+        current.append(i['accur'])
+        time.append(i['time'])
+    data = {
+        "current" : current,
+        "time" : time,
+    }
+    return JsonResponse(data)
 
 @csrf_exempt
 def cheakbox(request):
