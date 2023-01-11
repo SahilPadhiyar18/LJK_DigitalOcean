@@ -10,6 +10,7 @@ from django.views.decorators.csrf import csrf_exempt
 from datetime import datetime
 from django.utils import timezone
 
+
 # Create your views here
 
 # serialized_queryset = serializers.serialize('json', )
@@ -37,6 +38,7 @@ def espac(request):
 
 def home(request):
     mydata = ac.objects.all().order_by('id').values()
+
     template = loader.get_template('new.html')
     context = {
         'mymembers': mydata,
@@ -45,44 +47,45 @@ def home(request):
 
 
 # def data(request):
-#     if request.method =='POST':
-#         data = request.POST['no']
-#         name = request.POST['name']
-#         print(request.POST['endTime'])
-#         start_date=request.POST['startTime']
-#         end_date=request.POST['endTime']
-#         mydata = acdatalogs.objects.filter(espid=name , no=data,time__range=[start_date,end_date]).order_by('-id') .values()
-#         template = loader.get_template('graph.html')
-#         context = {
-#             'mymembers': mydata,
+#     mydata = acdatalogs.objects.all().distinct("espid")
+#     mydata = acdatalogs.objects.all().distinct("")
+#     template = loader.get_template('home.html')
+#     context = {
+#         'mymembers': mydata,
 #         }
-#         return HttpResponse(template.render(context, request)) 
-#     else:
-#         mydata = acdatalogs.objects.all().distinct("espid").values()
-#         template = loader.get_template('graph.html')
-#         print("abd")
-#         context = {
-#             'mymembers': mydata,
-#             }
-#         return HttpResponse(template.render(context, request)) 
-    
-# @csrf_exempt
-# def get_data(request,*args,**kwargs):
-#     Data = json.load(request)
-#     current = []
-#     time = []
-#     data = Data.get('no')
-#     name = Data.get('name')
-#     start_date = Data.get('startTime')
-#     end_date = Data.get('endTime')
-#     for i in  acdatalogs.objects.filter(espid=name , no=data,time__range=[start_date,end_date]).order_by('-id') .values():
-#         current.append(i['accur'])
-#         time.append(i['time'])
-#     data = {
-#         "current" : current,
-#         "time" : time,
-#     }
-#     return JsonResponse(data)
+#     return HttpResponse(template.render(context, request)) 
+
+def data(request):
+    if request.method =='POST':
+        data = request.POST['no']
+        name = request.POST['name']
+        print(request.POST['endTime'])
+        start_date=request.POST['startTime']
+        end_date=request.POST['endTime']
+        mydata = acdatalogs.objects.filter(espid=name , no=data,time__range=[start_date,end_date]).order_by('-id') .values()
+        template = loader.get_template('home.html')
+        context = {
+            'mymembers': mydata,
+        }
+        return HttpResponse(template.render(context, request)) 
+    else:
+        mydata = acdatalogs.objects.all().distinct("espid").values()
+        template = loader.get_template('graph.html')
+        print("abd")
+        context = {
+            'mymembers': mydata,
+            }
+        return HttpResponse(template.render(context, request)) 
+
+# def data(request):
+#     mydata = acdatalogs.objects.all().order_by('-id').values()
+# ac.objects.filter(espid=esp32id).values('no','value'))
+#     template = loader.get_template('home.html')
+#     context = {
+#         'mymembers': mydata,
+#         }
+#     return HttpResponse(template.render(context, request)) 
+
 
 @csrf_exempt
 def cheakbox(request):
@@ -93,18 +96,50 @@ def cheakbox(request):
     except:
         return JsonResponse("pass")
     
-def chart(request):
-    labels = []
-    data = []
-    queryset = datalogs.objects.all()
-    for person in queryset:
-        labels.append(person.rid)
-        data.append(person.ac2cur)
+# def chart(request):
+#     labels = []
+#     data = []
+#     queryset = datalogs.objects.all()
+#     for person in queryset:
+#         labels.append(person.rid)
+#         data.append(person.ac2cur)
 
-    return render(request,'data.html',{
-        'labels':labels,
-        'data':data
-    }) 
+#     return render(request,'data.html',{
+#         'labels':labels,
+#         'data':data
+#     }) 
+
+def chart(request):  
+    if request.method =='POST':
+        data = request.POST['no']
+        name = request.POST['name']
+        print(request.POST['endTime'])
+        start_date=request.POST['startTime']
+        end_date=request.POST['endTime']
+        mydata = acdatalogs.objects.filter(espid=name , no=data,time__range=[start_date,end_date]).order_by('-id') .values()
+        template = loader.get_template('graph.html')
+        context = {
+            'mymembers': mydata,
+        }
+        return HttpResponse(template.render(context, request)) 
+    else:
+        data = []
+        mydata = ac.objects.filter().values('name','espid').distinct('name')
+        for i in mydata:
+            # print()
+            if "/" not in i['name']:
+                data.append(i) 
+
+        # print(data)
+        template = loader.get_template('graph.html')
+        # print("abd")
+        context = {
+            'mymembers': data,
+            }
+        return HttpResponse(template.render(context, request)) 
+
+
+
 
 def population_chart(request):
     labels = []
@@ -157,8 +192,46 @@ def acupdate(request):
     # # else:    
     # return (HttpResponse("Sas"))  
 
+
+
+# @csrf_exempt
+# def get_data(request,*args,**kwargs):
+#     Data = json.load(request)
+#     lable = []
+#     sales = []
+#     data = Data.get('no')
+#     name = Data.get('name')
+#     start_date = Data.get('startTime')
+#     end_date = Data.get('endTime')
     
-    
+#     for i in  acdatalogs.objects.filter(espid=name , no=data,time__range=[start_date,end_date]).order_by('-id') .values():
+#         lable.append(i['accur'])
+#         sales.append(i['time'])
+#     data = {
+#         "lables" : sales,
+#         "sales" : lable,
+#         "ABCD" : [12,13,14,15,16,17],
+#         "cus" : 50,
+#     }
+#     return JsonResponse(data)
+# ----------------------------------------------------------
+    #     data = 1
+    # name = "13"
+    # start_date = datetime(2023,1,1,3,40,0)
+    # end_date = datetime(2023,1,1,3,45,0)
+    # data_lables = acdatalogs.objects.filter(espid=name , no=data,time__range=[start_date,end_date]).order_by('-id') .values('accur')
+    # print(data_lables)
+    # data = {
+    #     "lables" : data_lables,
+    #     "sales" : list(acdatalogs.objects.filter(espid=name , no=data,time__range=[start_date,end_date]).order_by('-id') .values('time')),
+    #     "ABCD" : [12,13,14,15,16,17],
+    #     "cus" : 50,
+    # }
+    # # print("sahil")
+    # # for i in mydata:
+    # #     print(i)
+    # return JsonResponse(list(data),safe=False)
+
     
 @csrf_exempt
 def get_data(request,*args,**kwargs):
@@ -187,34 +260,3 @@ def get_data(request,*args,**kwargs):
         "rid" : RID,
     }
     return JsonResponse(data)
-
-def chart(request):  
-    if request.method =='POST':
-        data = request.POST['no']
-        name = request.POST['name']
-        print(request.POST['endTime'])
-        start_date=request.POST['startTime']
-        end_date=request.POST['endTime']
-        mydata = acdatalogs.objects.filter(espid=name , no=data,time__range=[start_date,end_date]).order_by('-id') .values()
-        template = loader.get_template('graph.html')
-        context = {
-            'mymembers': mydata,
-        }
-        return HttpResponse(template.render(context, request)) 
-    else:
-        data = []
-        mydata = ac.objects.filter().values('name','espid').distinct('name')
-        for i in mydata:
-            # print()
-            if "/" not in i['name']:
-                data.append(i) 
-
-        # print(data)
-        template = loader.get_template('graph.html')
-        # print("abd")
-        context = {
-            'mymembers': data,
-            }
-        return HttpResponse(template.render(context, request)) 
-
-
