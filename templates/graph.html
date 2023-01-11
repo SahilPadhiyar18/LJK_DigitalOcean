@@ -86,14 +86,10 @@
           {% csrf_token %}
       <select id="name" name="name">                                   
           {%  for x in mymembers  %}
-          <option value= {{ x.espid }}>{{x.name}}</option>
+          <option value= {{ x.name }}>{{x.name}}</option>
           {% endfor %}  
       </select>
-      <select id="no" name="no">
-          <option value = 1 >1</option>
-          <option value = 2 >2</option>
-          <option value = 3 >3</option>
-      </select>
+   
       <input type="datetime-local" id="startTime" name="startTime">
       <input type="datetime-local" id="endTime" name="endTime">
       <input type="button" value="Get_Chart" onclick=getchart()>
@@ -135,7 +131,6 @@
       function getchart() {
 
         let name = document.getElementById("name").value;
-        let no = document.getElementById("no").value;
         let startTime = document.getElementById("startTime").value; 
         let endTime = document.getElementById("endTime").value ;
         if(startTime == "" && endTime == "" )
@@ -149,15 +144,30 @@
           url: "get_data",
           type: "POST",
           dataType: "json",
-          data: JSON.stringify({'name':name,'no': no ,'startTime':startTime ,'endTime': endTime,}),
+          data: JSON.stringify({'name':name,'startTime':startTime ,'endTime': endTime,}),
           headers: {
             "X-Requested-With": "XMLHttpRequest",
             "X-CSRFToken": getCookie("csrftoken"),
           },
           success: function(data){
             
-              console.log(data)
+            const final_data = data.current.map((data1,index) =>{
+              let object = {};
+              if(data.rid[index]==1)
+              {
+                object.time1 = data.time[index]
+                object.current1 = data.current[index]
+              }
+              else
+              {
+                object.time2 = data.time[index]
+                object.current2 = data.current[index]
+              }
+              return object
+            })
+            console.log("final_data",final_data)
               
+
               const ctx = document.getElementById('myChart');
               if(mychart!=null){
                 mychart.destroy();
@@ -165,15 +175,44 @@
               mychart = new Chart(ctx, {
                 type: 'line',
                 data: {
-                  labels: data.time,
-                  datasets: [{
+                  datasets: [
+                  {
+                    label: 'AC1',
+                    data: final_data,
+                    borderWidth: 1,
+                    parsing:{
+                      xAxisKey : 'time1',
+                      yAxisKey : 'current1'
+                    }
+                  },
+                 
+                 {
+                    label: 'AC2',
+                    data: final_data,
+                    borderWidth: 1,
+                    parsing:{
+                      xAxisKey : 'time2',
+                      yAxisKey : 'current2'
+                   }
+                  },
+                  /*{
                     label: '# of Votes',
                     data: data.current,
                     borderWidth: 1
-                  }]
+                  }*/
+                  ]
                 },
               options: {
-                scales: {                  
+                scales: {         
+                  x: {
+                    type: 'time',
+                    
+                    
+                    time: {
+                        unit: 'second'
+                    },
+                    
+                },         
                   y: {
                     beginAtZero: true
                   }
