@@ -27,5 +27,7 @@ urlpatterns = [
     path('population', include("myapp.urls")),
     path('acdetails', include("myapp.urls")),
     path('acupdate', include("myapp.urls")),
+    path('get_data', include("myapp.urls")),
+
 
 ]
