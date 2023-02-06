@@ -74,12 +74,12 @@ if DEVELOPMENT_MODE is True:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'ADMS',
-            'USER': 'Sahil',
-            'PASSWORD': 'AVNS_tdu7rSonQ_iF0uw5FvR',
-            'HOST': 'db-postgresql-adms-do-user-12454574-0.b.db.ondigitalocean.com',
+            'NAME': 'defaultdb',
+            'USER': 'doadmin',
+            'PASSWORD': 'AVNS_YmX6jKQSaJnmL4kP7UM',
+            'HOST': 'db-postgresql-blr1-16546-do-user-13501125-0.b.db.ondigitalocean.com',
             'PORT': '25060',
-        }
+        }            
     }
 elif len(sys.argv) > 0 and sys.argv[1] != 'collectstatic':
     if os.getenv("DATABASE_URL", None) is None:
