@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Course 4</title>
+
+	<!---custom css link---->
+	<link rel="stylesheet" type="text/css" href="{% static 'stylec.css'%}">
+
+	<link rel="stylesheet"
+  href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+	<!---start header---->
+	<header>
+		<a href="#" class="logo">
+			<img src="{% static 'img/download.png'%}">
+		</a>
+
+		<ul class="navbar">
+			<li><a href="/index">Home</a></li>
+			<li><a href="/index">Courses</a></li>
+			<li><a href="/index">About Us</a></li>
+			<li><a href="/index">Contact</a></li>
+		</ul>
+
+		<div class="header-icons">
+			<button class="bt1"><a href="/register">REGISTER</a></button>
+			<div class="bx bx-menu" id="menu-icon"></div>
+		</div>
+	</header>
+    <!---start home section---->
+	
+		<section class="home1" id="home1">
+			<div class="home-text">
+				
+            	<h5><b>Path Planning for Autonomous Drones</b></h5>
+				<h1>Internship Duration : 3 Months</h1>
+			</div>
+			<div class="parent1">
+				<div class="div4">
+					<p>Integrating drone systems with Geographic Information Systems (GIS), wireless
+						communication, and cloud computing can significantly enhance the capabilities and
+						efficiency of drone operations. Some examples of the benefits of these integrations
+						include:</p><br>
+					<p>
+						<b>Grid-based path planning :</b> This approach involves dividing the area into a grid and representing each cell as either occupied or unoccupied. The drone can then plan its path by traversing the unoccupied cells.</p><br>
+					<p>
+						<b>Probabilistic Roadmap (PRM) : </b>This approach involves building a graph of the environment, where the nodes represent potential locations for the drone to travel and the edges represent possible paths between these locations. PRM can be combined with sampling-based planners such as Rapidly-exploring Random Trees (RRT) to provide efficient and reliable path planning.</p><br>
+					<p>
+						<b>Potential field-based path planning : </b>This approach involves creating a virtual potential field in the environment, where obstacles have high potential and the goal has low potential. The drone then navigates through the area by following the gradient of the potential toward the goal.
+					</p><br>
+					<p>
+						<b>Model Predictive Control (MPC): </b> This approach involves predicting the future states of the drone based on a model of its dynamics, and then optimizing a control input that minimizes some objective function, such as energy consumption or time to reach the goal.
+					</p><br>
+					<p>
+						<b>Deep Reinforcement Learning : </b> This approach involves training a deep neural network to predict the optimal action to take given a state and a goal. The network is trained using reinforcement learning, where it receives a reward for reaching the goal and a penalty for colliding with obstacles.</p><br>
+				</div>
+				<div class="div5">
+					<div class="home-img">
+						<img src="{% static 'img/ac41.jpg'%}">
+					</div>
+				</div>
+			</div>
+			</div>
+	</section>
+
+    <!---start contact section---->
+	<section class="contact" id="contact">
+		<div class="main-contact">
+			<div class="contact-content">
+				<img src="{% static 'img/antar prerana.png'%}">
+				<img src="{% static 'img/LJ Smart LabZ Logo (1).png'%}">
+				
+			</div>
+
+			<div class="contact-content">
+				<li><a href="#home">Home</a></li>
+			  <li><a href="#categories">Categories</a></li>
+			  <li><a href="#courses">Courses</a></li>
+			  <li><a href="#about">About Us</a></li>
+			  <li><a href="#contact">Contact</a></li>
+			</div>
+
+			<div class="contact-content">
+				<li><a href="/register">Profile</a></li>
+				<li><a href="/register">Login</a></li>
+				<li><a href="/register">Register</a></li>
+				<li><a href="/register">Instructor</a></li>
+				<li><a href="#">Dashboard</a></li>
+			</div>
+
+			<div class="contact-content">
+				<li><a href="#">Ahmedabad,<br>Sarkhej-Okaf, Gujarat 382210</a></li>
+				<li><a href="#">placement@ljinstitutes.edu.in </a></li>
+				<li><a href="#">01646895741</a></li>
+			</div>
+
+		</div>
+	</section>
+
+	<div class="last-text">
+		<p>© 2022 LJ University</p>
+	</div>
+
+
+</body>
+</html>

@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -22,12 +24,18 @@ urlpatterns = [
     path('espac', include("myapp.urls")),
     path('delete', include("myapp.urls")),
     path('cheakbox', include("myapp.urls")),
-    path('home', include("myapp.urls")),
+    # path('home', include("myapp.urls")),
     path('chart', include("myapp.urls")),
     path('population', include("myapp.urls")),
     path('acdetails', include("myapp.urls")),
     path('acupdate', include("myapp.urls")),
     path('get_data', include("myapp.urls")),
 
-
-]
+    # path('',include('droneapp.urls')),
+    # path('c1/',include('droneapp.urls')),
+    # path('c2/',include('droneapp.urls')),
+    # path('c3/',include('droneapp.urls')),
+    # path('c4/',include('droneapp.urls')),
+    # path('c5/',include('droneapp.urls')),
+    # path('register/',include('droneapp.urls')),
+]+ static (settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

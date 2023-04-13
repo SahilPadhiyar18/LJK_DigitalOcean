@@ -1,0 +1,169 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <form method='post' action={% url 'register' %}>
+        
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>Register Forms</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
+</head>
+
+<body>
+    <section>
+        <header>
+		<a href="#" class="logo">
+			<img src="{% static 'img/download.png'%}">
+		</a>
+
+        <ul class="navbar">
+			<li><a href="/index">Home</a></li>
+			<li><a href="/index">Categories</a></li>
+			<li><a href="/index">Courses</a></li>
+			<li><a href="/index">About Us</a></li>
+			<li><a href="/index">Contact</a></li>
+		</ul>
+
+		<div class="header-icons">
+			<a href="#"><i class='bx bx-user'></i></a>
+			<a href="#"><i class='bx bx-heart' ></i></a>
+			<a href="#"><i class='bx bx-cart' ></i></a>
+			<div class="bx bx-menu" id="menu-icon"></div>
+		</div>
+	</header>
+    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-4">
+                <div class="card-body">
+                    <h2 class="title">Registration Form</h2>
+                    <form method="POST">
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">first name</label>
+                                    <input class="input--style-4" type="text" name="first_name">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">last name</label>
+                                    <input class="input--style-4" type="text" name="last_name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Birthday</label>
+                                    <div class="input-group-icon">
+                                        <input class="input--style-4 js-datepicker" type="date" name="birthday">
+                                        <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Gender</label>
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select name="gender" style="width: 150px">
+                                            <option disabled="disabled" selected="selected" >Choose option</option>
+                                            <option>Female</option>
+                                            <option>Male</option>
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-space">
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Email</label>
+                                    <input class="input--style-4" type="email" name="email">
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="input-group">
+                                    <label class="label">Phone Number</label>
+                                    <input class="input--style-4" type="text" name="phone">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label class="label">Subject</label>
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="subject" style="width: 150px">
+                                    <option disabled="disabled" selected="selected" >Choose option</option>
+                                    <option>Design and development of drone hardware and software systems</option>
+                                    <option>Flight testing and data collection</option>
+                                    <option>Algorithm development and optimization for image processing and navigation</option>
+                                    <option>Integration of drone systems with other technologies such as GIS, wireless
+                                        communication, and cloud computing</option>
+                                    <option>Project management and coordination</option>
+                                </select>
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                        <div class="p-t-15">
+                            {% csrf_token %}
+                            <button class="btn btn--radius-2 btn--blue" type="submit" value="Post">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    <!---start contact section---->
+	<section class="contact" id="contact">
+		<div class="main-contact">
+			<div class="contact-content">
+				<img src="{% static 'img/antar prerana.png'%}">
+				<img src="{% static 'img/LJ Smart LabZ Logo (1).png'%}">
+				
+			</div>
+
+			<div class="contact-content">
+				<li><a href="#home">Home</a></li>
+			  <li><a href="#categories">Categories</a></li>
+			  <li><a href="#courses">Courses</a></li>
+			  <li><a href="#about">About Us</a></li>
+			  <li><a href="#contact">Contact</a></li>
+			</div>
+
+			<div class="contact-content">
+				<li><a href="/register">Profile</a></li>
+				<li><a href="/register">Login</a></li>
+				<li><a href="/register">Register</a></li>
+				<li><a href="/register">Instructor</a></li>
+				<li><a href="#">Dashboard</a></li>
+			</div>
+
+			<div class="contact-content">
+				<li><a href="#">Ahmedabad,<br>Sarkhej-Okaf, Gujarat 382210</a></li>
+				<li><a href="#">placement@ljinstitutes.edu.in </a></li>
+				<li><a href="#">01646895741</a></li>
+			</div>
+
+		</div>
+	</section>
+
+	<div class="last-text">
+		<p>© 2022 LJ University</p>
+	</div>
+</form>
+
+
+</body>
+
+</html>
+<!-- end document-->

@@ -260,3 +260,33 @@ def get_data(request,*args,**kwargs):
         "rid" : RID,
     }
     return JsonResponse(data)
+
+
+
+def index(request):
+    return render(request,'dronehome.html')
+def c1(request):
+    return render(request,'c1.html')
+def c2(request):
+    return render(request,'c2.html')
+def c3(request):
+    return render(request,'c3.html')
+def c4(request):
+    return render(request,'c4.html')
+def c5(request):
+    return render(request,'c5.html')
+def register(request):
+    print('id')
+    n=''
+    if  request.method=="POST":
+        first_name=request.POST.get('first_name')
+        last_name=request.POST.get('last_name')
+        birthday=request.POST.get('birthday')
+        email=request.POST.get('email')
+        phone=request.POST.get('phone')
+        subject=request.POST.get('subject')
+        gender=request.POST.get('gender')
+        en=Profile(first_name=first_name,last_name=last_name, birthday=birthday, email=email, phone=phone,subject=subject,gender=gender)
+        en.save()
+        n='Data Inserted'
+    return render(request, 'register.html',{'n':n})

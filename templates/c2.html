@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Course 2</title>
+
+	<!---custom css link---->
+	<link rel="stylesheet" type="text/css" href="{% static 'stylec.css'%}">
+
+	<link rel="stylesheet"
+  href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+	<!---start header---->
+	<header>
+		<a href="#" class="logo">
+			<img src="{% static 'img/download.png'%}">
+		</a>
+
+		<ul class="navbar">
+			<li><a href="/index">Home</a></li>
+			<li><a href="/index">Categories</a></li>
+			<li><a href="/index">Courses</a></li>
+			<li><a href="/index">About Us</a></li>
+			<li><a href="/index">Contact</a></li>
+		</ul>
+
+		<div class="header-icons">
+			<button class="bt1"><a href="{% static 'register.html'%}">REGISTER</a></button>
+			<div class="bx bx-menu" id="menu-icon"></div>
+		</div>
+	</header>
+
+	<section class="home1" id="home1">
+		<div class="home-text">
+			<h5><b>Utilize image processing to assess the health of plants, allowing early detection of issues before they become major problems.
+			</b></h5>
+			<h1>Internship Duration : 3 Months</h1>
+		</div>
+		<div class="parent1">
+			<div class="div4">
+				<p>
+					<b>The Problem statement is :</b> Health of Plants. In a farm, there are thousands of plants, and the health of each plant is important to consumers, as well as farmers, so it is difficult for humans to survey all the plants, so we want to design a digital solution for this vintage problem. We have already planned a path for an inbuilt camera UAV for feedback, but now we want to design a system that can give health reports to every plant.
+
+					In order to improve the health of plants, we must detect many variables that directly or indirectly affect plants.
+					</p><br>
+				<p>
+					<b>Factors that can affect the health of plant :</b>
+				</p><br>
+				<p>
+					<b>Weed :</b> There are many types of weeds that can be harmful to plants in farms. Weeds can compete with crops for nutrients, water, and sunlight, and can also harbor pests and diseases that can spread to the crops. Bindweed is a vining weed that can quickly cover and choke out crops. It can also damage the roots of neighboring plants and make it difficult for them to access water and nutrients. Pigweed is a broadleaf weed that can grow up to several feet tall and shade out crops. It can also be a host for pests and diseases.</p><br>
+				<p>
+					<b>Light:</b> Plants require a certain amount of light to carry out photosynthesis, which is essential for their growth and development. Insufficient light can lead to stunted growth and poor health, while too much light can cause damage to the plant</p><br>
+				<p>
+					<b>Water: </b>Water is another essential element for plant growth. Plants require a certain amount of water to transport nutrients and to carry out photosynthesis. Insufficient water can lead to wilting and eventual death of the plant while over-watering can lead to root rot and other diseases.</p><br>
+				<p>
+					<b>Soil:</b> The type and quality of soil can also affect the health of plants. Plants require a certain pH level, nutrients, and microorganisms to grow properly. Poor soil quality can lead to nutrient deficiencies and disease, while too compacted soil can make it difficult for roots to grow.</p><br>
+			</div>
+			<div class="div5">
+				<div class="home-img">
+				<img src="{% static 'img/p3.jpg'%}">
+				</div>
+			</div>
+		</div>
+</section>
+    <!---start contact section---->
+	<section class="contact" id="contact">
+		<div class="main-contact">
+			<div class="contact-content">
+				<img src="{% static 'img/antar prerana.png'%}">
+				<img src="{% static 'img/LJ Smart LabZ Logo (1).png'%}">
+				
+			</div>
+
+			<div class="contact-content">
+				<li><a href="#home">Home</a></li>
+			  <!-- <li><a href="#categories">Categories</a></li> -->
+			  <li><a href="#courses">Courses</a></li>
+			  <li><a href="#about">About Us</a></li>
+			  <li><a href="#contact">Contact</a></li>
+			</div>
+
+			<div class="contact-content">
+				<li><a href="/register">Profile</a></li>
+				<li><a href="/register">Login</a></li>
+				<li><a href="/register">Register</a></li>
+				<li><a href="/register">Instructor</a></li>
+				<li><a href="#">Dashboard</a></li>
+			</div>
+
+			<div class="contact-content">
+				<li><a href="#">Ahmedabad,<br>Sarkhej-Okaf, Gujarat 382210</a></li>
+				<li><a href="#">placement@ljinstitutes.edu.in </a></li>
+				<li><a href="#">01646895741</a></li>
+			</div>
+
+		</div>
+	</section>
+
+	<div class="last-text">
+		<p>© 2022 LJ University</p>
+	</div>
+
+</body>
+</html>

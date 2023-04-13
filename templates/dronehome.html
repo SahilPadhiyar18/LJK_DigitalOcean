@@ -1,0 +1,241 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=300, initial-scale=1.0">
+	<title>Drone Web</title>
+
+	<!---custom css link---->
+	<link rel="stylesheet" type="text/css" href="{% static 'style12.css' %}">
+
+	<link rel="stylesheet"
+  href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+	<!---start header---->
+	<header>
+		<a href="#" class="logo">
+			<img src="{% static 'img/download.png' %}">
+		</a>
+
+		<ul class="navbar">
+			<li><a href="#home">Home</a></li>
+		
+			<li><a href="#courses">Courses</a></li>
+			<li><a href="#about">About Us</a></li>
+		
+			<li><a href="#contact">Contact</a></li>
+		</ul>
+
+		<div class="header-icons">
+			<!-- <a href="#"><i class='bx bx-user'></i></a>
+			<a href="#"><i class='bx bx-heart' ></i></a>
+			<a href="#"><i class='bx bx-cart' ></i></a> -->
+			<!-- <button class="b1"><a href="register.html">REGISTER</a></button> -->
+			<div class="bx bx-menu" id="menu-icon"></div>
+		</div>
+	</header>
+
+	<!---start home section---->
+	<section class="home" id="home">
+		<div class="home-text">
+			<h6>Best learning platform</h6>
+			<h1>Internship Opportunity for Drone Technology</h1>
+			<p>Own your future learning new skills</p>
+			<div class="latter">
+				<button class="bt"><a href="/register">REGISTER HERE</a></button>
+				<button class="bt"><a href="{% static 'Untitled document (4).pdf'}">INFORMATION</a></button>
+
+			</div>
+		</div>
+
+		<div class="home-img">
+			<img src="{% static 'img/main1.jpg'%}" class="responsive">
+		</div>
+		
+        
+	</section>
+
+	<!---start categories section---->
+	<section class="categories" id="courses">
+		<div class="center-text">
+			<h5>PROBLEM STATEMENT</h5>
+			<!-- /<h2>Popular Courses</h2> -->
+		</div>
+
+		<div class="categories-content">
+			<div class="box">
+				<img src="{% static 'img/ddrone.jpg'%}" class="responsive">
+				<h3><a href="{% url 'c1'%}">Counting And Differentiating Plants</a></h3>
+			</div>
+
+			<div class="box">
+				<img src="{% static 'img/detet.jpg'%}" class="responsive">
+				<h3><a href="/c2"> Issue Detection and Health of Plants</a></h3>
+				
+			</div>
+
+			<div class="box">
+				<img src="{% static 'img/p22.jpg'%}" class="responsive">
+				<h3><a href="/c3">Develpoment of Drone</a></h3>
+				
+			</div>
+
+			<div class="box">
+				<img src="{% static 'img/image ana 2.webp'%}" class="responsive">
+				<h3><a href="/c4">Path Planning</a></h3>
+				
+			</div>
+
+			<div class="box">
+				<img src="{% static 'img/p44 (1).jpg'%}" class="responsive">
+				<h3><a href="/c5">Designing of Agricultural Spraying Drone</a></h3>
+				
+			</div>
+
+		</div>
+
+	
+	</section>
+
+	<!---start about section-->
+
+	<section class="about" id="about">
+		<h2 class="head">ABOUT</h2>
+		<div class="parent">
+			<div class="div1">
+				<div class="about-img">
+					<img src="{% static 'img/about.png'%}">
+				</div>	
+			</div>
+			<div class="div2">
+				<p>An internship opportunity in drone technology would be a great chance for students
+					who are interested in pursuing a career in the field of unmanned aerial systems. As an
+					intern, you would have the opportunity to gain hands-on experience and develop
+					technical skills through projects and assignments related to the development and
+					application of drones.</p>
+				<p>The specific tasks and responsibilities of the internship would depend on the
+					organization offering the opportunity and your individual interests and skill set.</p>
+				<p>Additionally, you may have the opportunity to attend meetings, training sessions, and
+					workshops, and to interact with industry professionals to expand your knowledge and
+					network in the field of drone technology.</p>
+				<p>Overall, an internship in drone technology can provide a valuable opportunity to gain
+					hands-on experience, develop technical skills, and further your understanding of this
+					rapidly growing and exciting field.</p>
+			
+			</div>
+			</div>
+			<div class="div3">
+				<h2 class="heading">Here are some common prerequisites for a drone internship:</h2>
+				<p>1) Education: A bachelor's or master's degree in engineering, aviation, or a related
+					field is often required.</p>
+				<p>2) Technical skills: Knowledge of drone technology and operations, as well as
+					experience with relevant software and hardware, is important.</p>
+				<p>3) Problem-solving skills: Drones are complex systems and require the ability to
+					think critically and solve problems.</p>
+				<p>4) Communication skills: Effective communication is critical for ensuring safe and
+					successful drone operations, as well as for working effectively with team
+					members and stakeholders.</p>
+				<p>5) Team player: Drone internships often involve working in teams, so the ability to
+					work well with others is important.</p>
+				<p>6) Passion for drones: A strong interest in drones and a desire to learn and grow
+					in this field is a key factor for success in a drone internship.</p>
+			</div>
+	</section>
+	<section class="certificate">
+		<div class="certificate-text">
+			<h2 class="head">CERTIFICATE</h2>
+		</div>
+		<div class="certificatem">
+			<div class="cimg">
+				<img src="{% static 'img/certificate.jpg'%}" class="responsive">
+			</div>
+			<div class="center-text">
+				<h4>You can earn this type of certificate after complition</h4>
+			</div>
+		</div>
+		
+	</section>
+
+	<!---start cta section---->
+	<section class="cta">
+		<div class="center-text">
+			<h5>Trusted By</h5>
+			<h2>500+ Leading Universities And Companies</h2>
+		</div>
+
+		<div class="cta-content">
+			<div class="cta-img">
+				<img src="{% static 'img/paras (1).jpg'%}">
+			</div>
+
+			<div class="cta-img">
+				<img src="{% static 'img/dcm (1).jpg'%}">
+			</div>
+
+			<div class="cta-img">
+				<img src="{% static 'img/hinustan.jpg'%}">
+			</div>
+
+			<div class="cta-img">
+				<img src="{% static 'img/zen (1).jpg'%}">
+			</div>
+
+			<div class="cta-img">
+				<img src="{% static 'img/detect.jpg'%}">
+			</div>
+
+			<div class="cta-img">
+				<img src="{% static 'img/ratlan.jpg'%}">
+			</div>
+
+		</div>
+	</section>
+
+	<!---start contact section---->
+	<section class="contact" id="contact">
+		<div class="main-contact">
+			<div class="contact-content">
+				<img src="{% static 'img/antar prerana.png'%}">
+				<img src="{% static 'img/LJ Smart LabZ Logo (1).png'%}">
+				
+			</div>
+
+			<div class="contact-content">
+				<li><a href="#home">Home</a></li>
+			  <li><a href="#categories">Categories</a></li>
+			  <li><a href="#courses">Courses</a></li>
+			  <li><a href="#about">About Us</a></li>
+			  <li><a href="#contact">Contact</a></li>
+			</div>
+
+			<div class="contact-content">
+				<li><a href="register.html">Profile</a></li>
+				<li><a href="register.html">Login</a></li>
+				<li><a href="register.html">Register</a></li>
+				<li><a href="register.html">Instructor</a></li>
+				<li><a href="#">Dashboard</a></li>
+			</div>
+
+			<div class="contact-content">
+				<li><a href="#">Ahmedabad,<br>Sarkhej-Okaf, Gujarat 382210</a></li>
+				<li><a href="#">placement@ljinstitutes.edu.in </a></li>
+				<li><a href="#">01646895741</a></li>
+			</div>
+
+		</div>
+	</section>
+
+	<div class="last-text">
+		<p>© 2022 LJ University</p>
+	</div>
+
+	
+</body>
+</html>

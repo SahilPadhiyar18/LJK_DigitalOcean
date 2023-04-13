@@ -15,11 +15,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY  = 'django-insecure-tjt^73im5ir+7+5pt&=kuzfirc=y8b4p7--4x$v!sk3qe8aw!a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG =  "False"
-DEBUG = True
+DEBUG =  False
+# DEBUG = True
 
 ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
-
+# ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -80,6 +80,14 @@ if DEVELOPMENT_MODE is True:
             'HOST': 'db-postgresql-blr1-16546-do-user-13501125-0.b.db.ondigitalocean.com',
             'PORT': '25060',
         }            
+        # 'default': {
+        #     'ENGINE': 'django.db.backends.postgresql',
+        #     'NAME': 'testSahilDB',
+        #     'USER': 'postgres',
+        #     'PASSWORD': '6958',
+        #     'HOST': '127.0.0.1',
+        #     'PORT': '5432'
+        #     }   
     }
 elif len(sys.argv) > 0 and sys.argv[1] != 'collectstatic':
     if os.getenv("DATABASE_URL", None) is None:
@@ -126,7 +134,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = "/static/"
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+# STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 # Uncomment if you have extra static files and a directory in your GitHub repo.
 # If you don't have this directory and have this uncommented your build will fail
