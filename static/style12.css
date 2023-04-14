@@ -632,33 +632,7 @@ header.sticky{
 		gap: 1rem;
 		text-align: center;
 	}
-	.parent {
-		display: grid; 
-
-		grid-template-rows: 1fr 1fr;
-		grid-template-columns: 1fr;
-		
-		gap: 0px;
-		height: 100%;
-		}
-		
-		.div1 { 
-			 grid-row-start: 1;
-				grid-column-start: 1;
-			
-				grid-row-end: 2;
-				grid-column-end: 2; 
-		}
-		.div2 { 
-			
-			
-			grid-row-start: 2;
-			grid-column-start: 1;
-		 
-			grid-row-end: 3;
-			grid-column-end: 2; 
-		
-		}
+	
 	.bt{
 		margin: 10px;
 	}
@@ -698,5 +672,40 @@ header.sticky{
 	/* .certificatem{
 		flex-direction: column;
 	} */
+	.cimg { grid-area: 1 / 1 / 2 / 2; }
+        .center-text { grid-area: 2 / 1 / 3 / 2; 
+			text-align: center;
+		padding-top: 20px;}
+        .parent {
+            display: grid;
+            grid-template-columns: 1fr;
+            /* grid-template-rows: repeat(2, 1fr); */
+            grid-column-gap: 0px;
+            grid-row-gap: 0px;
+            }
+            
+            .div1 {grid-area: 2 / 1 / 3 / 2; 
+				padding-left: 20px;
+			padding-bottom: 20px;
+		}
+            .div2 { grid-area: 2 / 1 / 3 / 2; 
+		    
+				grid-area: 1 / 1 / 2 / 2;
+	  font-size: var(--p-font);
+		color: var(--second-color);
+		font-weight: 500;
+		line-height: 30px;
+		margin-bottom: 30px;
+		text-align: justify;}
+	  .div3 { 
+	
+		font-size: var(--p-font);
+		color: var(--second-color);
+		font-weight: 500;
+		line-height: 30px;
+		margin-bottom: 30px;
+		text-align: justify;
+	
+	}
  }
  
