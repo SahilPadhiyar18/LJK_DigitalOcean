@@ -104,27 +104,31 @@
                         </div>
                        
              
-                        <div class="row row-space">
+                           <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Gender</label>
-                                    <div class="input-group-icon">
+                                    
+                                    <div class="input-group">
+                                     <label class="label">Gender</label>
+                                    <div class="rs-select2 js-select-simple select--no-search">
                                         <select name="gender" style="width: 150px">
                                             <option disabled="disabled" selected="selected" >Choose option</option>
-                                            <option>Female</option>
+                                           <option>Female</option>
                                             <option>Male</option>
                                             <option>Other</option>
                                         </select>
+                                        <div class="select-dropdown"></div>
                                     </div>
-                                    <div class="select-dropdown"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Subject</label>
+                                    <label class="label">Institute</label>
                                     <div class="rs-select2 js-select-simple select--no-search">
                                         <select name="gender" style="width: 150px">
                                             <option disabled="disabled" selected="selected" >Choose option</option>
+                                           <option disabled="disabled" selected="selected" >Choose option</option>
                                             <option>Image processing for Counting and differentiating types of plants in farms</option>
                                             <option>Utilize image processing to assess the health of plants, allowing early detection of issues before they become major problems</option>
                                             <option>Path Planning for Autonomous Drones</option>
@@ -135,6 +139,8 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                       
                         </div>
                         <div class="p-t-15">
                             {% csrf_token %}
