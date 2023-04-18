@@ -22,5 +22,5 @@ urlpatterns = [
     path('c4', c4, name="c4"),
     path('c5', c5, name="c5"),
     path('register', register, name="register"),
-    path('index', views.index, name='index'),
+
 ]
