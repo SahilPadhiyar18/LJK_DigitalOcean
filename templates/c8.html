@@ -1,0 +1,139 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course 1</title>
+
+    <!---custom css link---->
+    <link rel="stylesheet" type="text/css" href="{% static 'stylec.css'%}">
+
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!---start header---->
+    <header>
+        <a href="#" class="logo">
+            <img src="{% static 'img/download.png'%}">
+        </a>
+
+        <ul class="navbar">
+            <li><a href="/">Home</a></li>
+            <li><a href="/#courses">Courses</a></li>
+            <li><a href="/#about">About Us</a></li>
+            <li><a href="/#contact">Contact</a></li>
+        </ul>
+
+    </header>
+
+    <section class="home1" id="home1">
+        <div class="home-text">
+
+            <h5><b>Vehicle counting</b></h5>
+            <h1>Internship Duration : 3 Months</h1>
+        </div>
+        <div class="parent1">
+            <div class="div4">
+                <p>
+                    <b>The Problem statement is :</b> In a large parking lot, it is difficult and time-consuming to manually count the number of vehicles present at any given
+                    time. This leads to inefficiencies in managing the parking lot and can result in overcrowding or underutilization of
+                    parking spaces. The use of drones for vehicle counting in parking lots can provide a faster and more accurate way of
+                    counting the number of vehicles present. However, the challenge lies in developing an automated system for drone-based
+                    vehicle counting that can handle the complexities of a large parking lot with multiple levels and structures, varying
+                    lighting conditions, and occlusions caused by obstacles such as pillars and other parked vehicles.
+                </p>
+                <br>
+                <!-- <p>
+                    <b>The Probable Solution is :</b> Image processing can be used to count and differentiate types of
+                    plants in farms using various techniques. Here are some steps you can follow to achieve this
+                </p>
+                <br>
+                <p>
+                    <b>Image Acquisition: </b>The first step is to acquire high-quality images of the plants in the
+                    farm. This can be done using cameras or drones, depending on the size of the farm and the types of
+                    plants.
+                </p><br>
+                <p>
+                    <b>Image Preprocessing:</b>The acquired images may have some noise or artifacts that can affect the
+                    accuracy of the plant counting and classification. Therefore, the images need to be preprocessed to
+                    enhance their quality. Techniques such as noise reduction, image sharpening, and contrast
+                    enhancement can be applied to improve the images.
+                </p><br>
+                <p>
+                    <b>Segmentation:</b> The next step is to separate the plants from the background in the images. This
+                    can be done using segmentation techniques such as thresholding, edge detection, and region growing.
+                    Once the plants are segmented, they can be analyzed and counted separately.
+                </p><br>
+                <p>
+                    <b>Feature Extraction:</b> To differentiate the types of plants, various features can be extracted
+                    from the segmented images. These features can include the shape, size, color, texture, and other
+                    characteristics of the plants.
+                </p><br>
+                <p>
+                    <b>Classification:</b>The extracted features can be used to classify the plants into different types
+                    using machine learning algorithms such as support vector machines (SVM), artificial neural networks
+                    (ANN), or decision trees.
+                </p><br>
+                <p>
+                    <b>Counting:</b>Finally, the number of plants of each type can be determined by counting the
+                    segmented regions that belong to each type of plant.
+                </p><br> -->
+            </div>
+            <div class="div5">
+                <div class="home-img">
+                    <img src="{% static 'img/vehical.jpg'%}">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!---start contact section---->
+    <section class="contact" id="contact">
+        <div class="main-contact">
+            <div class="contact-content">
+                <img src="{% static 'img/antar prerana.png'%}">
+                <img src="{% static 'img/LJ Smart LabZ Logo (1).png'%}">
+
+            </div>
+
+            <div class="contact-content">
+                <li><a href="/">Home</a></li>
+                <li><a href="/">Categories</a></li>
+                <li><a href="/#courses">Courses</a></li>
+                <li><a href="/#about">About Us</a></li>
+                <li><a href="/#contact">Contact</a></li>
+            </div>
+
+            <div class="contact-content">
+                <li><a href="/register">Profile</a></li>
+                <li><a href="/register">Login</a></li>
+                <li><a href="/register">Register</a></li>
+                <li><a href="/register">Instructor</a></li>
+                <li><a href="#">Dashboard</a></li>
+            </div>
+
+            <div class="contact-content">
+                <li><a href="#">Ahmedabad,<br>704,LJ Smart Labz,Law Building,LJ Campus,LJ University Gujarat 382210</a>
+                </li>
+                <li><a href="#">bhushan@ljku.edu.in </a></li>
+                <li><a href="#">9033096486</a></li>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="last-text">
+        <p>© 2022 LJ University</p>
+    </div>
+
+</body>
+
+</html>
