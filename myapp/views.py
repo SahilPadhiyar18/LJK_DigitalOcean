@@ -275,14 +275,7 @@ def c4(request):
     return render(request,'c4.html')
 def c5(request):
     return render(request,'c5.html')
-def c6(request):
-    return render(request,'c6.html')
-def c7(request):
-    return render(request,'c7.html')
-def c8(request):
-    return render(request,'c8.html')
-def c9(request):
-    return render(request,'c9.html')
+
 def register(request):
     print('id')
     n=''
