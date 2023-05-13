@@ -690,7 +690,7 @@ header.sticky{
             }
             
             .div1 {grid-area: 2 / 1 / 3 / 2; 
-				padding-left: 20px;
+
 			padding-bottom: 20px;
 		}
             .div2 { grid-area: 2 / 1 / 3 / 2; 
