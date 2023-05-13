@@ -439,6 +439,7 @@ header.sticky{
 .about-img img{
 	width: 100%;
 	height: 500px;
+	padding: 20px;
 }
 .about-text h2{
 	font-size: var(--h2-font);
