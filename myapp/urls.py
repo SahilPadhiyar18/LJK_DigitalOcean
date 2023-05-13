@@ -25,7 +25,8 @@ urlpatterns = [
     path('c7', c7, name="c7"),
     path('c8', c8, name="c8"),
     path('c9', c9, name="c9"),
-
+    path('c10', c10, name="c10"),
+    path('c11', c11, name="c11"),
 
     path('register', register, name="register"),
 
