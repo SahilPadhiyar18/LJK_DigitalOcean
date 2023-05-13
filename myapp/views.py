@@ -283,6 +283,10 @@ def c8(request):
     return render(request,'c8.html')
 def c9(request):
     return render(request,'c9.html')
+def c10(request):
+    return render(request,'c10.html')
+def c11(request):
+    return render(request,'c11.html')
 
 def register(request):
     print('id')
