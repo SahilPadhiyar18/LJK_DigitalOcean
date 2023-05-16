@@ -55,6 +55,7 @@ coursechoices=[
 genderchoice=[
     ('M','Male'),
     ('F','Female'),
+    ('O','Other'),
 ]
 # Create your models here.
 class Profile(models.Model):
