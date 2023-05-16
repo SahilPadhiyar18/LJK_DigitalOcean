@@ -51,11 +51,24 @@ coursechoices=[
                ('c3','Algorithm development and optimization for image processing and navigation'),
                ('c4','Integration of drone systems with other technologies such as GIS, wireless communication, and cloud computing'),
                ('c5','Project management and coordination'),
+               ('c6','Drone-Based Lake Water Level Measurement and Analysis using Image Processing Techniques'),
+               ('c7','Advanced Path Planning and Navigation for Drones: Techniques and Applications'),
+               ('c8','Drone-Based Surveillance and Security: Techniques and Applications of Image Processing and Machine Learning'),
+               ('c9','Advanced Techniques for Inter-Communication and Coordination of Autonomous Drones in Dynamic Environments: Principles, Algorithms and Applications'),
+               ('c10','Advanced Techniques for 3D Mapping using Drones: Principles, Methods, and Applications'),
+               ('c11','Drone-Based Surveillance and Security: Techniques and Applications of Image Processing and Machine Learning'),
                ]
 genderchoice=[
     ('M','Male'),
     ('F','Female'),
     ('O','Other'),
+]
+institutechoice=[
+         ('LJIT','LJIT'),
+        ('Polytechinc','LJ Polytechinc'),
+        ('MCA','LJ MCA'),
+         ('BCA','LJ BCA'),
+         ('Others','Others'),
 ]
 # Create your models here.
 class Profile(models.Model):
