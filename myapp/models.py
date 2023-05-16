@@ -64,13 +64,7 @@ genderchoice=[
     ('O','Other'),
 ]
 
-institutechoice=[
-         ('LJIT','LJIT'),
-        ('Polytechinc','LJ Polytechinc'),
-        ('MCA','LJ MCA'),
-         ('BCA','LJ BCA'),
-         ('Others','Others'),
-]
+
 
 # Create your models here.
 class Profile(models.Model):
