@@ -51,28 +51,17 @@ coursechoices=[
                ('c3','Algorithm development and optimization for image processing and navigation'),
                ('c4','Integration of drone systems with other technologies such as GIS, wireless communication, and cloud computing'),
                ('c5','Project management and coordination'),
-               ('c6','Drone-Based Lake Water Level Measurement and Analysis using Image Processing Techniques');
-               ('c7','Advanced Path Planning and Navigation for Drones: Techniques and Applications'),
-               ('c8','Drone-Based Surveillance and Security: Techniques and Applications of Image Processing and Machine Learning')
-               ('c9','Advanced Techniques for Inter-Communication and Coordination of Autonomous Drones in Dynamic Environments: Principles, Algorithms, and Applications'),
-               ('c10','Advanced Techniques for 3D Mapping using Drones: Principles, Methods, and Applications'),
-               ('c11','Drone-Based Surveillance and Security: Techniques and Applications of Image Processing and Machine Learning'),
                ]
 genderchoice=[
     ('M','Male'),
     ('F','Female'),
-    ('O','Other'),
 ]
-
-
-
 # Create your models here.
 class Profile(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
+    birthday= models.DateField(max_length=8)
     email = models.CharField(max_length=255)
     phone = models.CharField(max_length=255)
-     branch= models.DateField(max_length=8)
     subject = models.CharField(max_length=90, choices=coursechoices,default='c1') 
-    gender = models.CharField(max_length=90, choices=genderchoice,default='M') 
-    institute = models.CharField(max_length=90, choices=institutechoice,default='Others') 
+    gender = models.CharField(max_length=90, choices=genderchoice,default='M')
