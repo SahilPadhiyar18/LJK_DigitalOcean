@@ -74,7 +74,6 @@ institutechoice=[
 class Profile(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
-    birthday= models.DateField(max_length=8)
     email = models.CharField(max_length=255)
     phone = models.CharField(max_length=255)
     subject = models.CharField(max_length=90, choices=coursechoices,default='c1') 
