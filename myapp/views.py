@@ -290,5 +290,5 @@ def c11(request):
     return render(request,'c11.html')
 def register(request):
     print('id')
-    return render(request, 'register.html',{'n':n})
+    return render(request, 'register.html')
 
