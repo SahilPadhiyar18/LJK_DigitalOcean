@@ -6,6 +6,7 @@ from django.template import loader
 import json
 from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
+from .models import rgsub
 
 from datetime import datetime
 from django.utils import timezone
@@ -299,7 +300,8 @@ def register(request):
         subject=request.POST.get('subject')
         gender=request.POST.get('gender')
         institute=request.POST.get('institute')
-        en=rgsub(first_name=first_name,last_name=last_name, email=email, phone=phone,branch=branch ,subject=subject,gender=gender, institute=institute)
+       en = rgsub(first_name=first_name, last_name=last_name, email=email, phone=phone, branch=branch, subject=subject, gender=gender, institute=institute)
+
         en.save()
         n='Data Inserted'
     return render(request, 'register.html',{'n':n})
