@@ -300,7 +300,7 @@ def register(request):
         subject=request.POST.get('subject')
         gender=request.POST.get('gender')
         institute=request.POST.get('institute')
-        en=Profile(first_name=first_name,last_name=last_name, email=email, phone=phone,branch=branch ,subject=subject,gender=gender, institute=institute)
+        en=rgsub(first_name=first_name,last_name=last_name, email=email, phone=phone,branch=branch ,subject=subject,gender=gender, institute=institute)
         en.save()
         n='Data Inserted'
     return render(request, 'register.html',{'n':n})
