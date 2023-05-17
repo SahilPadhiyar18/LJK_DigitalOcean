@@ -289,6 +289,6 @@ def c10(request):
 def c11(request):
     return render(request,'c11.html')
 def register(request):
-    print('id')
+    
     return render(request, 'register.html')
 
