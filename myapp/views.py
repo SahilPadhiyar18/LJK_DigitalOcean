@@ -6,7 +6,7 @@ from django.template import loader
 import json
 from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
-from .models import rgsub
+
 
 from datetime import datetime
 from django.utils import timezone
