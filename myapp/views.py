@@ -288,19 +288,3 @@ def c10(request):
 def c11(request):
     return render(request,'c11.html')
 
-def register(request):
-    print('id')
-    n=''
-    if  request.method=="POST":
-        first_name=request.POST.get('first_name')
-        last_name=request.POST.get('last_name')
-        email=request.POST.get('email')
-        phone=request.POST.get('phone')
-        branch=request.POST.get('branch')
-        subject=request.POST.get('subject')
-        gender=request.POST.get('gender')
-        institute=request.POST.get('institute')
-        en=Profile(first_name=first_name,last_name=last_name, email=email, phone=phone,branch=branch ,subject=subject,gender=gender, institute=institute)
-        en.save()
-        n='Data Inserted'
-    return render(request, 'register.html',{'n':n})
