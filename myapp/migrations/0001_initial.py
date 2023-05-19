@@ -63,4 +63,18 @@ class Migration(migrations.Migration):
                 ('ping', models.DateTimeField(auto_now_add=True)),
             ],
         ),
+        migrations.CreateModel(
+            name='RegisterUserData',
+            fields=[
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('first_name', models.CharField(max_length=255)),
+                ('last_name', models.CharField(max_length=255)),
+                ('email', models.CharField(max_length=255)),
+                ('phone', models.CharField(max_length=255)),
+                ('branch', models.CharField(max_length=255)),
+                ('subject', models.CharField(choices=[('c1', 'Design and development of drone hardware and software systems'), ('c2', 'Flight testing and data collection'), ('c3', 'Algorithm development and optimization for image processing and navigation'), ('c4', 'Integration of drone systems with other technologies such as GIS, wireless communication, and cloud computing'), ('c5', 'Project management and coordination'), ('c6', 'Drone-Based Lake Water Level Measurement and Analysis using Image Processing Techniques'), ('c7', 'Advanced Path Planning and Navigation for Drones: Techniques and Applications'), ('c8', 'Drone-Based Surveillance and Security: Techniques and Applications of Image Processing and Machine Learning'), ('c9', 'Advanced Techniques for Inter-Communication and Coordination of Autonomous Drones in Dynamic Environments: Principles, Algorithms and Applications'), ('c10', 'Advanced Techniques for 3D Mapping using Drones: Principles, Methods, and Applications'), ('c11', 'Drone-Based Surveillance and Security: Techniques and Applications of Image Processing and Machine Learning')], default='c1', max_length=90)),
+                ('gender', models.CharField(choices=[('M', 'Male'), ('F', 'Female'), ('O', 'Other')], default='M', max_length=90)),
+                ('institute', models.CharField(choices=[('LJIT', 'LJIT'), ('Polytechinc', 'LJ Polytechinc'), ('MCA', 'LJ MCA'), ('BCA', 'LJ BCA'), ('Others', 'Others')], default='LJIT', max_length=90)),
+            ]
+        )
     ]
