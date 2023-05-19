@@ -144,3 +144,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # Uncomment if you have extra static files and a directory in your GitHub repo.
 # If you don't have this directory and have this uncommented your build will fail
 # STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+
+
+# Email Configuration
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT=587
+EMAIL_HOST_USER='sahil.padhiyar@ljku.edu.in'
+EMAIL_HOST_PASSWORD='panCh@l4060'
+EMAIL_USE_TLS=True   

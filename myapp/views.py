@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse,JsonResponse
 from .models import *
 from django.contrib.auth.models import User, auth
@@ -10,6 +10,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 from datetime import datetime
 from django.utils import timezone
+from .utils import send_verification_email
 
 
 # Create your views here
@@ -288,7 +289,25 @@ def c10(request):
     return render(request,'c10.html')
 def c11(request):
     return render(request,'c11.html')
+
+
 def register(request):
-    print("sahil")
+    if request.method == 'POST':
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        branch = request.POST.get('branch')
+        institute = request.POST.get('institute')
+        gender = request.POST.get('gender')
+        subject = request.POST.get('subject')
+
+        registeruserdata = RegisterUserData(first_name=first_name, last_name=last_name, email=email, phone=phone,
+                                            branch=branch, institute=institute, gender=gender, subject=subject)
+        registeruserdata.save()
+        
+        send_verification_email(registeruserdata)
+        return render(request,'dronehome.html')
+
     return render(request, 'register.html')
 

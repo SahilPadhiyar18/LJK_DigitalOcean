@@ -45,7 +45,7 @@
             <div class="card card-4">
                 <div class="card-body">
                     <h2 class="title">Registration Form</h2>
-                    <form method="POST">
+                    <form method="POST" action="{% url 'register' %}">
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
@@ -88,7 +88,7 @@
                                 <div class="input-group">
                                     <label class="label">Institute</label>
                                     <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="gender" style="width: 150px">
+                                        <select name="institute" style="width: 150px">
                                             <option disabled="disabled" selected="selected" >Choose option</option>
                                             <option>LJIT</option>
                                             <option>LJ Polytechinc</option>
@@ -125,9 +125,8 @@
                                 <div class="input-group">
                                     <label class="label">Subject</label>
                                     <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="gender" style="width: 150px">
+                                        <select name="subject" style="width: 150px">
                                             <option disabled="disabled" selected="selected" >Choose option</option>
-                                           <option disabled="disabled" selected="selected" >Choose option</option>
                                             <option>Image processing for Counting and differentiating types of plants in farms</option>
                                             <option>Utilize image processing to assess the health of plants, allowing early detection of issues before they become major problems</option>
                                             <option>Path Planning for Autonomous Drones</option>

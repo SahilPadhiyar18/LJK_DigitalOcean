@@ -73,12 +73,12 @@ institutechoice=[
 # Create your models here.
 
 #NEW MODELS
-class rgsub(models.Model):
+class RegisterUserData(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
     phone = models.CharField(max_length=255)
     branch = models.CharField(max_length=255)
-    subject = models.CharField(max_length=90, choices=coursechoices,default='c1') 
-    gender = models.CharField(max_length=90, choices=genderchoice,default='M')
-    insitute = models.CharField(max_length=90, choices=institutechoice,default='LJIT')
+    subject = models.CharField(max_length=90, choices=coursechoices, default='c1') 
+    gender = models.CharField(max_length=90, choices=genderchoice, default='M')
+    institute = models.CharField(max_length=90, choices=institutechoice, default='LJIT')
