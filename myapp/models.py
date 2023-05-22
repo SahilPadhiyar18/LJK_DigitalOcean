@@ -64,11 +64,11 @@ genderchoice=[
     ('O','Other'),
 ]
 institutechoice=[
-         ('LJIT','LJIT'),
-        ('Polytechinc','LJ Polytechinc'),
-        ('MCA','LJ MCA'),
-         ('BCA','LJ BCA'),
-         ('Others','Others'),
+         ('LJIET','LJIET'),
+        ('LJ Polytechinc','LJ Polytechinc'),
+        ('LJ MCA','LJ MCA'),
+         ('LJ BCA','LJ BCA'),
+         ('O','Others'),
 ]
 # Create your models here.
 
