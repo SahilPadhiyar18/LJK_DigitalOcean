@@ -45,17 +45,17 @@ class acdatalogs(models.Model):
     time = models.DateTimeField(auto_now_add=True)
 
 coursechoices=[
-            ('C1','Image processing for Counting and differentiating types of plants in farms'),
-            ('C2','Utilize image processing to assess the health of plants, allowing early detection of issues before they become major problems'),
-            ('C3','Design and development of drone hardware and software systems'),
-            ('C4','Path Planning for Autonomous Drones'),
-            ('C5','Designing of Agricultural Spraying Drone'),
-            ('C6','Drone-Based Lake Water Level Measurement and Analysis using Image Processing Techniques'),
-            ('C7','Advanced Path Planning and Navigation for Drones: Techniques and Applications'),
-            ('C8','Automated Vehicle Detection and Counting using Image Processing Techniques'),
-            ('C9', 'Advanced Techniques for Inter-Communication and Coordination of Autonomous Drones in Dynamic Environments: Principles, Algorithms, and Applications'),
-            ('C10','Advanced Techniques for 3D Mapping using Drones: Principles, Methods, and Applications'),
-            ('C11','Drone-Based Surveillance and Security: Techniques and Applications of Image Processing and Machine Learning'),
+            ('Image processing for Counting and differentiating types of plants in farms','Image processing for Counting and differentiating types of plants in farms'),
+            ('Utilize image processing to assess the health of plants, allowing early detection of issues before they become major problems','Utilize image processing to assess the health of plants, allowing early detection of issues before they become major problems'),
+            ('Design and development of drone hardware and software systems','Design and development of drone hardware and software systems'),
+            ('Path Planning for Autonomous Drones','Path Planning for Autonomous Drones'),
+            ('Designing of Agricultural Spraying Drone','Designing of Agricultural Spraying Drone'),
+            ('Drone-Based Lake Water Level Measurement and Analysis using Image Processing Techniques','Drone-Based Lake Water Level Measurement and Analysis using Image Processing Techniques'),
+            ('Advanced Path Planning and Navigation for Drones: Techniques and Applications','Advanced Path Planning and Navigation for Drones: Techniques and Applications'),
+            ('Automated Vehicle Detection and Counting using Image Processing Techniques','Automated Vehicle Detection and Counting using Image Processing Techniques'),
+            ('Advanced Techniques for Inter-Communication and Coordination of Autonomous Drones in Dynamic Environments: Principles, Algorithms, and Applications', 'Advanced Techniques for Inter-Communication and Coordination of Autonomous Drones in Dynamic Environments: Principles, Algorithms, and Applications'),
+            ('Advanced Techniques for 3D Mapping using Drones: Principles, Methods, and Applications','Advanced Techniques for 3D Mapping using Drones: Principles, Methods, and Applications'),
+            ('Drone-Based Surveillance and Security: Techniques and Applications of Image Processing and Machine Learning','Drone-Based Surveillance and Security: Techniques and Applications of Image Processing and Machine Learning'),
             ]
 
 genderchoice=[
