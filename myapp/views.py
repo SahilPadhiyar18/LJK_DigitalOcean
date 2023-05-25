@@ -305,9 +305,15 @@ def register(request):
         registeruserdata = RegisterUserData(first_name=first_name, last_name=last_name, email=email, phone=phone,
                                             branch=branch, institute=institute, gender=gender, subject=subject)
         registeruserdata.save()
-        
+         data = {
+            'name': first_name +" "+ last_name,
+       
+            'email': email,
+           'subject' : subject,
+        }
+     
         send_verification_email(registeruserdata)
-        return render(request,'dronehome.html')
+        return render(request,'submit.html',data)
 
     return render(request, 'register.html')
 
