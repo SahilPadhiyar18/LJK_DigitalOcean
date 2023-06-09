@@ -317,3 +317,15 @@ def register(request):
 
     return render(request, 'register.html')
 
+def waterlevelupdate(request):
+    try:           
+        esp32id = request.GET['espid']
+        Waterdata = request.GET['data']
+        WaterTankData(espid=esp32id,data=Waterdata,time = datetime.now(tz=timezone.utc)).save()
+        return HttpResponse("done")
+    except:
+        print("pass")
+        pass
+        return HttpResponse("Pass")
+
+
