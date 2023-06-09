@@ -13,6 +13,7 @@ urlpatterns = [
     path('acdetails',acdetails, name='acdetails'),
     path('acupdate',acupdate, name='acupdate'),
     path('get_data',get_data, name='get_data'),
+    path('waterlevelupdate',waterlevelupdate, name='waterlevelupdate'),
 
 
     path('', index, name='dronehome'),
