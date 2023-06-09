@@ -93,3 +93,9 @@ class RegisterUserData(models.Model):
 #     subject = models.CharField(max_length=90, choices=coursechoices, default='c1') 
 #     gender = models.CharField(max_length=90, choices=genderchoice, default='M')
 #     institute = models.CharField(max_length=90, choices=institutechoice, default='LJIT')
+
+class WaterTankData(models.Model):
+    espid = models.CharField(max_length=255)
+    data = models.CharField(max_length=255)
+    time = models.DateTimeField(auto_now_add=True)
+
