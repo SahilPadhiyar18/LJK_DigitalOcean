@@ -30,7 +30,7 @@ urlpatterns = [
     path('acdetails', include("myapp.urls")),
     path('acupdate', include("myapp.urls")),
     path('get_data', include("myapp.urls")),
-
+    path('waterlevelupdate', include("myapp.urls")),
     # path('',include('droneapp.urls')),
     # path('c1/',include('droneapp.urls')),
     # path('c2/',include('droneapp.urls')),
