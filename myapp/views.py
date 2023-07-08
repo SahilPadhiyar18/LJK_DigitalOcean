@@ -39,13 +39,13 @@ def espac(request):
 #     return HttpResponse(template.render(context, request)) 
 
 def home(request):
-    return render(request,'sample.html') 
-    # mydata = ac.objects.all().order_by('id').values()
-    # template = loader.get_template('new.html')
-    # context = {
-    #     'mymembers': mydata,
-    #     }
-    # return HttpResponse(template.render(context, request)) 
+    # return render(request,'sample.html') 
+    mydata = ac.objects.all().order_by('id').values()
+    template = loader.get_template('new.html')
+    context = {
+        'mymembers': mydata,
+        }
+    return HttpResponse(template.render(context, request)) 
 
 
 # def data(request):
